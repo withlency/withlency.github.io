@@ -1,0 +1,220 @@
+/* Animation Styles */
+
+/* Loading Animations */
+.animate-on-load {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-on-load-delay {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease 0.3s forwards;
+}
+
+.animate-on-load-delay-2 {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 0.8s ease 0.6s forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Floating Animation */
+.floating {
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+/* Pulse Animation */
+.pulse {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Blur-in Animation */
+.blur-in {
+    filter: blur(10px);
+    transition: filter 1s ease;
+}
+
+.blur-in.visible {
+    filter: blur(0);
+}
+
+/* Scale-in Animation */
+.scale-in {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.scale-in.visible {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Graph Bar Animation */
+.graph-bar.visible {
+    height: calc(var(--data-height, 0) * 1%);
+}
+
+/* Mobile Menu Animation */
+.navbar.menu-open .mobile-menu-btn span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.navbar.menu-open .mobile-menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar.menu-open .mobile-menu-btn span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar.menu-open .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    background-color: var(--white);
+    padding: 2rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Typing Animation for Hero */
+.typing-effect {
+    border-right: 3px solid var(--primary);
+    white-space: nowrap;
+    overflow: hidden;
+    display: inline-block;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: var(--primary) }
+}
+
+/* Shine effect on cards */
+.card-shine {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-shine::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 100%
+    );
+    transform: skewX(-25deg);
+    transition: all 0.75s;
+}
+
+.card-shine:hover::before {
+    left: 125%;
+}
+
+/* Background pattern animation */
+.animated-bg {
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Count-up animation for stats */
+.count-up {
+    animation: countUp 2s ease-out forwards;
+}
+
+@keyframes countUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
