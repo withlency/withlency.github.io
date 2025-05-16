@@ -472,7 +472,7 @@ h1 {
 
 .logo-container {
     width: 100%;
-    max-width: 650px;
+    max-width: 800px;
     position: relative;
     z-index: 2;
     transform: translateY(30px);
@@ -1355,7 +1355,7 @@ h1 {
     }
 
     .logo-container {
-        max-width: 500px;
+        max-width: 650px;
         margin: 0 auto;
     }
 
@@ -1386,7 +1386,7 @@ h1 {
     }
 
     .logo-container {
-        max-width: 400px;
+        max-width: 500px;
     }
 
     .section-container {
@@ -1530,7 +1530,7 @@ h1 {
     }
 
     .logo-container {
-        max-width: 320px;
+        max-width: 400px;
     }
 
     #element1 {

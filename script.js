@@ -398,21 +398,19 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Smooth scroll for navigation links
+    // Simple scroll for navigation links - MODIFIED SECTION
+    // Allow default browser behavior for hash links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
-            e.preventDefault();
+            // Let the browser handle the click naturally
+            // No preventDefault() means it will jump to the section immediately
             
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                const headerHeight = header.offsetHeight;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
-                
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+            // Just close mobile menu if open
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
             }
         });
     });
