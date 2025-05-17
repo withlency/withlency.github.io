@@ -3651,3 +3651,156 @@ h1 {
         padding: 1.5rem;
     }
 }
+
+/* Pilot Progress Timeline */
+.pilot-progress-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 1rem;
+    box-shadow: var(--shadow-md);
+}
+
+.progress-title {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--text-dark);
+    font-size: 1.8rem;
+}
+
+.progress-timeline {
+    position: relative;
+    padding: 1rem 0;
+}
+
+.progress-phase {
+    display: flex;
+    margin-bottom: 2.5rem;
+}
+
+.progress-phase:last-child {
+    margin-bottom: 0;
+}
+
+.phase-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60px;
+    flex-shrink: 0;
+}
+
+.phase-dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #f1f1f1;
+    border: 2px solid rgba(133, 17, 180, 0.3);
+    position: relative;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+.phase-dot.completed {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    box-shadow: 0 0 15px rgba(133, 17, 180, 0.4);
+}
+
+.phase-dot.active {
+    background-color: white;
+    border-color: var(--primary-color);
+    border-width: 3px;
+    box-shadow: 0 0 10px rgba(133, 17, 180, 0.3);
+    animation: pulseDot 1.5s infinite;
+}
+
+@keyframes pulseDot {
+    0% { transform: scale(1); box-shadow: 0 0 10px rgba(133, 17, 180, 0.3); }
+    50% { transform: scale(1.1); box-shadow: 0 0 20px rgba(133, 17, 180, 0.5); }
+    100% { transform: scale(1); box-shadow: 0 0 10px rgba(133, 17, 180, 0.3); }
+}
+
+.phase-line {
+    width: 3px;
+    flex-grow: 1;
+    background: linear-gradient(to bottom, rgba(133, 17, 180, 0.3), rgba(133, 17, 180, 0.1));
+    margin: 8px 0;
+}
+
+.progress-phase:last-child .phase-line {
+    background: transparent;
+}
+
+.phase-content {
+    background-color: #f8f7fb;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-left: 1.5rem;
+    flex-grow: 1;
+    position: relative;
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+}
+
+.phase-content:hover {
+    transform: translateY(-5px);
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-left-color: var(--primary-color);
+}
+
+.phase-content::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 24px;
+    width: 20px;
+    height: 20px;
+    background-color: inherit;
+    transform: rotate(45deg);
+    border-bottom: inherit;
+    border-left: inherit;
+}
+
+.phase-content h4 {
+    margin-bottom: 0.75rem;
+    color: var(--primary-color);
+}
+
+.phase-content p {
+    margin: 0;
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Responsive styles for the timeline */
+@media (max-width: 768px) {
+    .progress-phase {
+        flex-direction: column;
+        margin-bottom: 3rem;
+    }
+    
+    .phase-indicator {
+        flex-direction: row;
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    .phase-line {
+        width: auto;
+        height: 3px;
+        flex-grow: 1;
+        margin: 0 8px;
+        background: linear-gradient(to right, rgba(133, 17, 180, 0.3), rgba(133, 17, 180, 0.1));
+    }
+    
+    .phase-content {
+        margin-left: 0;
+    }
+    
+    .phase-content::before {
+        display: none;
+    }
+}
