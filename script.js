@@ -455,4 +455,118 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 1000);
         });
     }
+
+    // Solution Section Interactivity
+    const initSolutionTabs = () => {
+        const tabItems = document.querySelectorAll('.tab-item');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabItems.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs
+                tabItems.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked tab
+                tab.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Run demo animation if system tab is selected
+                if (tabId === 'system') {
+                    setTimeout(() => {
+                        runSystemDemo();
+                    }, 300);
+                }
+            });
+        });
+        
+        // Initialize the demo
+        const replayButton = document.getElementById('replayDemo');
+        if (replayButton) {
+            replayButton.addEventListener('click', runSystemDemo);
+        }
+        
+        // Auto-run the demo when in view
+        const systemTab = document.getElementById('system-tab');
+        if (systemTab) {
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            runSystemDemo();
+                        }, 500);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(systemTab);
+        }
+    };
+
+    // Run the system demo animation
+    const runSystemDemo = () => {
+        const steps = document.querySelectorAll('.step-item');
+        const modules = document.querySelectorAll('.workflow-module');
+        const feedContainer = document.querySelector('.feed-container');
+        const alertNotification = document.querySelector('.alert-notification');
+        
+        // Reset all elements
+        steps.forEach(step => step.classList.remove('active'));
+        modules.forEach(module => module.classList.remove('active'));
+        feedContainer.classList.remove('active');
+        alertNotification.classList.remove('active');
+        
+        // Animation timeline
+        setTimeout(() => {
+            // Step 1: Camera captures the calving pen
+            steps[0].classList.add('active');
+            modules[0].classList.add('active');
+        }, 300);
+        
+        setTimeout(() => {
+            // Step 2: Video streams are processed locally
+            steps[0].classList.remove('active');
+            modules[0].classList.remove('active');
+            steps[1].classList.add('active');
+            modules[1].classList.add('active');
+        }, 2000);
+        
+        setTimeout(() => {
+            // Step 3: AI analyzes for calving signs
+            steps[1].classList.remove('active');
+            modules[1].classList.remove('active');
+            steps[2].classList.add('active');
+            modules[2].classList.add('active');
+            feedContainer.classList.add('active');
+        }, 4000);
+        
+        setTimeout(() => {
+            // Step 4: Alerts are sent when issues detected
+            steps[2].classList.remove('active');
+            modules[2].classList.remove('active');
+            steps[3].classList.add('active');
+            modules[3].classList.add('active');
+        }, 6000);
+        
+        setTimeout(() => {
+            // Show alert notification
+            alertNotification.classList.add('active');
+        }, 7500);
+        
+        // Reset after completing
+        setTimeout(() => {
+            steps[3].classList.remove('active');
+            modules[3].classList.remove('active');
+            feedContainer.classList.remove('active');
+            alertNotification.classList.remove('active');
+        }, 11000);
+    };
+    
+    // Call the function to initialize the solution tabs
+    initSolutionTabs();
+    
 });

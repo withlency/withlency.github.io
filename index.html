@@ -252,59 +252,242 @@
                     <div class="section-line"></div>
                 </div>
                 
-                <div class="solution-intro fade-in">
-                    <h3>AI-Powered Calving Detection – Non-Invasive, 24/7 Monitoring</h3>
+                <div class="calvalert-intro fade-in">
+                    <h3>CalvAlert: AI-Powered Calving Detection</h3>
+                    <p>An intelligent vision system that detects critical calving moments in real time, eliminating the need for invasive sensors and exhausting night checks.</p>
                 </div>
                 
-                <div class="features-grid">
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h4>Non-Invasive Monitoring</h4>
-                        <p>No wearables or sensors required. Our system uses vision technology that doesn't disturb the animals.</p>
+                <div class="solution-visualization fade-in">
+                    <div class="visualization-tabs">
+                        <div class="tab-item active" data-tab="system">How It Works</div>
+                        <div class="tab-item" data-tab="features">Key Features</div>
+                        <div class="tab-item" data-tab="benefits">Unique Advantages</div>
                     </div>
                     
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-video"></i>
+                    <div class="visualization-content">
+                        <!-- System Tab - How It Works -->
+                        <div class="tab-content active" id="system-tab">
+                            <div class="system-interactive">
+                                <div class="steps-column">
+                                    <div class="step-item" data-step="1">
+                                        <div class="step-number">1</div>
+                                        <div class="step-text">A fisheye camera captures the calving pen</div>
+                                    </div>
+                                    
+                                    <div class="step-item" data-step="2">
+                                        <div class="step-number">2</div>
+                                        <div class="step-text">Video streams are processed locally</div>
+                                    </div>
+                                    
+                                    <div class="step-item" data-step="3">
+                                        <div class="step-number">3</div>
+                                        <div class="step-text">Our AI analyzes for calving signs</div>
+                                    </div>
+                                    
+                                    <div class="step-item" data-step="4">
+                                        <div class="step-number">4</div>
+                                        <div class="step-text">Alerts are sent when issues detected</div>
+                                    </div>
+                                    
+                                    <button id="replayDemo" class="replay-button">
+                                        <i class="fas fa-redo-alt"></i> Replay
+                                    </button>
+                                </div>
+                                
+                                <div class="visual-column">
+                                    <div class="workflow-module" data-module="camera">
+                                        <div class="module-icon">
+                                            <i class="fas fa-camera"></i>
+                                        </div>
+                                        <div class="module-text">CAMERA MONITORING</div>
+                                    </div>
+                                    
+                                    <div class="workflow-module" data-module="data">
+                                        <div class="module-icon">
+                                            <i class="fas fa-database"></i>
+                                        </div>
+                                        <div class="module-text">VIDEO & DATA GATHERING</div>
+                                    </div>
+                                    
+                                    <div class="workflow-module" data-module="ai">
+                                        <div class="module-icon">
+                                            <i class="fas fa-brain"></i>
+                                        </div>
+                                        <div class="module-text">AI MODEL</div>
+                                    </div>
+                                    
+                                    <div class="workflow-module" data-module="detection">
+                                        <div class="module-icon">
+                                            <i class="fas fa-bell"></i>
+                                        </div>
+                                        <div class="module-text">OUTCOME DETECTION</div>
+                                    </div>
+                                    
+                                    <div class="feed-container">
+                                        <div class="live-badge">LIVE</div>
+                                        <div class="cow-monitor">
+                                            <div class="cow cow-1"></div>
+                                            <div class="cow cow-2"></div>
+                                            <div class="cow cow-3"></div>
+                                        </div>
+                                        <div class="camera-controls">
+                                            <span class="camera-dot"></span>
+                                            <span class="camera-dot active"></span>
+                                            <span class="camera-dot"></span>
+                                            <span class="camera-dot"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="alert-notification">
+                                        <div class="alert-header">
+                                            <i class="fas fa-exclamation-triangle"></i>
+                                            <span>URGENT: Calving Alert</span>
+                                        </div>
+                                        <div class="alert-body">
+                                            <div class="alert-row">
+                                                <div class="alert-label">Barn:</div>
+                                                <div class="alert-value">East Wing</div>
+                                            </div>
+                                            <div class="alert-row">
+                                                <div class="alert-label">Cow ID:</div>
+                                                <div class="alert-value">#45</div>
+                                            </div>
+                                            <div class="alert-row">
+                                                <div class="alert-label">Status:</div>
+                                                <div class="alert-value status-alert">Calving in Progress</div>
+                                            </div>
+                                            <div class="alert-row">
+                                                <div class="alert-label">Detected:</div>
+                                                <div class="alert-value">11:03:54 PM</div>
+                                            </div>
+                                        </div>
+                                        <div class="alert-message">
+                                            Immediate attention recommended. Please check on the animal promptly to ensure proper care.
+                                        </div>
+                                        <div class="alert-actions">
+                                            <button class="alert-btn dismiss">Dismiss</button>
+                                            <button class="alert-btn acknowledge">Acknowledge</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4>360° Coverage</h4>
-                        <p>A single fisheye camera effectively monitors multiple cows in various pen layouts.</p>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-bell"></i>
+                        
+                        <!-- Features Tab -->
+                        <div class="tab-content" id="features-tab">
+                            <div class="features-grid">
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-bell"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Customizable Smart Alerts</h4>
+                                        <p>AI-driven predictions for timely interventions</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-video"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Full 24/7 Monitoring</h4>
+                                        <p>Continuous video coverage with infrared night vision and playback options</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-expand"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Scalable Monitoring</h4>
+                                        <p>One 360° fisheye camera can cover multiple cows, regardless of size or layout of the pen</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Weatherproof Design</h4>
+                                        <p>Built for harsh farm environments with durable components</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Simple Setup</h4>
+                                        <p>Installs in minutes with minimal technical knowledge required</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="feature-block">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="feature-details">
+                                        <h4>Local Support</h4>
+                                        <p>Backed by partners who understand farming needs</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h4>AI-Powered Alerts</h4>
-                        <p>Receive real-time notifications when calving begins or complications arise.</p>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <h4>Predictive Analytics</h4>
-                        <p>Our AI system identifies early signs of labor and potential complications.</p>
-                    </div>
-                    
-                    <div class="feature-card fade-in">
-                        <div class="feature-icon">
-                            <i class="fas fa-coins"></i>
-                        </div>
-                        <h4>Cost Efficiency</h4>
-                        <p>Reduce labor costs, veterinary expenses, and financial losses from calf mortality.</p>
-                    </div>
-                </div>
-                
-                <div class="solution-demo fade-in">
-                    <h3>See How It Works</h3>
-                    <div class="demo-container">
-                        <div class="demo-placeholder">
-                            <!-- Interactive demo animation will go here -->
-                            <div class="play-button">
-                                <i class="fas fa-play"></i>
+                        
+                        <!-- Benefits Tab -->
+                        <div class="tab-content" id="benefits-tab">
+                            <div class="benefits-showcase">
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-robot"></i>
+                                    </div>
+                                    <h4>Non-Invasive Monitoring</h4>
+                                    <p>AI vision replaces wearables; no animal contact or maintenance needed</p>
+                                </div>
+                                
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-eye"></i>
+                                    </div>
+                                    <h4>Full-Pen Coverage with One Camera</h4>
+                                    <p>360° fisheye lens covers the entire pen with a single device</p>
+                                </div>
+                                
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <h4>Instant Edge-AI Alerts</h4>
+                                    <p>Real-time notifications from on-device AI processing</p>
+                                </div>
+                                
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-brain"></i>
+                                    </div>
+                                    <h4>AI Calving Prediction</h4>
+                                    <p>Trained on real footage to detect early labor signs</p>
+                                </div>
+                                
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h4>Fast ROI</h4>
+                                    <p>Eliminates overnight labor costs and boosts efficiency</p>
+                                </div>
+                                
+                                <div class="benefit-card">
+                                    <div class="benefit-icon">
+                                        <i class="fas fa-lightbulb"></i>
+                                    </div>
+                                    <h4>Smart Calving Insights</h4>
+                                    <p>Track trends for proactive calf and cow health decisions</p>
+                                </div>
                             </div>
                         </div>
                     </div>
