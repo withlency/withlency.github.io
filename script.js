@@ -30,31 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.classList.add('overlay');
     body.appendChild(overlay);
     
-    // Initialize
-    initCursor();
-    initScrollEvents();
-    initAnimations();
-    initCarousel();
-    initMobileMenu();
-    initFormValidation();
-    initHeroCounter();
-    initButtonEffects();
-        
-    // Flip cards on touch for mobile devices
-    const statsCards = document.querySelectorAll('.stats-card');
-    if (isTouchDevice()) {
-        statsCards.forEach(card => {
-            card.addEventListener('touchstart', () => {
-                const cardInner = card.querySelector('.stats-card-inner');
-                cardInner.style.transform = 
-                    cardInner.style.transform === 'rotateY(180deg)' 
-                        ? 'rotateY(0deg)' 
-                        : 'rotateY(180deg)';
-            });
-        });
-    }
-    
-    // Functions
+    // Function definitions - defined BEFORE they're called in initialization
     function initCursor() {
         // Only initialize custom cursor on non-touch devices
         if (!isTouchDevice()) {
@@ -412,23 +388,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
     
-    // Simple scroll for navigation links - MODIFIED SECTION
-    // Allow default browser behavior for hash links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            // Let the browser handle the click naturally
-            // No preventDefault() means it will jump to the section immediately
-            
-            // Just close mobile menu if open
-            if (navLinks.classList.contains('active')) {
-                mobileMenuToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-                overlay.classList.remove('active');
-                body.classList.remove('no-scroll');
-            }
-        });
-    });
-    
     // Utility functions
     function isElementInViewport(el) {
         const rect = el.getBoundingClientRect();
@@ -444,22 +403,73 @@ document.addEventListener('DOMContentLoaded', () => {
                 (navigator.msMaxTouchPoints > 0));
     }
     
-    // Play button interaction for demo video
-    const playButton = document.querySelector('.play-button');
-    if (playButton) {
-        playButton.addEventListener('click', () => {
-            // In a real implementation, this would trigger the video to play
-            playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
-            setTimeout(() => {
-                playButton.innerHTML = '<i class="fas fa-pause"></i>';
-            }, 1000);
-        });
-    }
-
+    // Run the system demo animation
+    const runSystemDemo = () => {
+        const steps = document.querySelectorAll('.step-item');
+        const modules = document.querySelectorAll('.workflow-module');
+        const feedContainer = document.querySelector('.feed-container');
+        const alertNotification = document.querySelector('.alert-notification');
+        
+        if (!steps.length || !modules.length) return;
+        
+        // Reset all elements
+        steps.forEach(step => step.classList.remove('active'));
+        modules.forEach(module => module.classList.remove('active'));
+        if (feedContainer) feedContainer.classList.remove('active');
+        if (alertNotification) alertNotification.classList.remove('active');
+        
+        // Animation timeline
+        setTimeout(() => {
+            // Step 1: Camera captures the calving pen
+            if (steps[0]) steps[0].classList.add('active');
+            if (modules[0]) modules[0].classList.add('active');
+        }, 300);
+        
+        setTimeout(() => {
+            // Step 2: Video streams are processed locally
+            if (steps[0]) steps[0].classList.remove('active');
+            if (modules[0]) modules[0].classList.remove('active');
+            if (steps[1]) steps[1].classList.add('active');
+            if (modules[1]) modules[1].classList.add('active');
+        }, 2000);
+        
+        setTimeout(() => {
+            // Step 3: AI analyzes for calving signs
+            if (steps[1]) steps[1].classList.remove('active');
+            if (modules[1]) modules[1].classList.remove('active');
+            if (steps[2]) steps[2].classList.add('active');
+            if (modules[2]) modules[2].classList.add('active');
+            if (feedContainer) feedContainer.classList.add('active');
+        }, 4000);
+        
+        setTimeout(() => {
+            // Step 4: Alerts are sent when issues detected
+            if (steps[2]) steps[2].classList.remove('active');
+            if (modules[2]) modules[2].classList.remove('active');
+            if (steps[3]) steps[3].classList.add('active');
+            if (modules[3]) modules[3].classList.add('active');
+        }, 6000);
+        
+        setTimeout(() => {
+            // Show alert notification
+            if (alertNotification) alertNotification.classList.add('active');
+        }, 7500);
+        
+        // Reset after completing
+        setTimeout(() => {
+            if (steps[3]) steps[3].classList.remove('active');
+            if (modules[3]) modules[3].classList.remove('active');
+            if (feedContainer) feedContainer.classList.remove('active');
+            if (alertNotification) alertNotification.classList.remove('active');
+        }, 11000);
+    };
+    
     // Solution Section Interactivity
     const initSolutionTabs = () => {
         const tabItems = document.querySelectorAll('.tab-item');
         const tabContents = document.querySelectorAll('.tab-content');
+        
+        if (!tabItems.length) return;
         
         tabItems.forEach(tab => {
             tab.addEventListener('click', () => {
@@ -472,7 +482,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 // Show corresponding content
                 const tabId = tab.getAttribute('data-tab');
-                document.getElementById(`${tabId}-tab`).classList.add('active');
+                const tabContent = document.getElementById(`${tabId}-tab`);
+                if (tabContent) tabContent.classList.add('active');
                 
                 // Run demo animation if system tab is selected
                 if (tabId === 'system') {
@@ -506,86 +517,182 @@ document.addEventListener('DOMContentLoaded', () => {
             observer.observe(systemTab);
         }
     };
-
-    // Run the system demo animation
-    const runSystemDemo = () => {
-        const steps = document.querySelectorAll('.step-item');
-        const modules = document.querySelectorAll('.workflow-module');
-        const feedContainer = document.querySelector('.feed-container');
-        const alertNotification = document.querySelector('.alert-notification');
+    
+    // Enhanced tab switching with animation
+    const enhanceTabSwitching = () => {
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const contents = document.querySelectorAll('.features-content');
         
-        // Reset all elements
-        steps.forEach(step => step.classList.remove('active'));
-        modules.forEach(module => module.classList.remove('active'));
-        feedContainer.classList.remove('active');
-        alertNotification.classList.remove('active');
+        if (!tabBtns.length) return;
         
-        // Animation timeline
-        setTimeout(() => {
-            // Step 1: Camera captures the calving pen
-            steps[0].classList.add('active');
-            modules[0].classList.add('active');
-        }, 300);
-        
-        setTimeout(() => {
-            // Step 2: Video streams are processed locally
-            steps[0].classList.remove('active');
-            modules[0].classList.remove('active');
-            steps[1].classList.add('active');
-            modules[1].classList.add('active');
-        }, 2000);
-        
-        setTimeout(() => {
-            // Step 3: AI analyzes for calving signs
-            steps[1].classList.remove('active');
-            modules[1].classList.remove('active');
-            steps[2].classList.add('active');
-            modules[2].classList.add('active');
-            feedContainer.classList.add('active');
-        }, 4000);
-        
-        setTimeout(() => {
-            // Step 4: Alerts are sent when issues detected
-            steps[2].classList.remove('active');
-            modules[2].classList.remove('active');
-            steps[3].classList.add('active');
-            modules[3].classList.add('active');
-        }, 6000);
-        
-        setTimeout(() => {
-            // Show alert notification
-            alertNotification.classList.add('active');
-        }, 7500);
-        
-        // Reset after completing
-        setTimeout(() => {
-            steps[3].classList.remove('active');
-            modules[3].classList.remove('active');
-            feedContainer.classList.remove('active');
-            alertNotification.classList.remove('active');
-        }, 11000);
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class
+                tabBtns.forEach(b => b.classList.remove('active'));
+                contents.forEach(c => {
+                    c.classList.remove('active');
+                    const grid = c.querySelector('.animated-grid');
+                    if (grid) grid.style.opacity = '0';
+                });
+                
+                // Add active class
+                btn.classList.add('active');
+                const tabId = btn.getAttribute('data-tab');
+                const activeContent = document.getElementById(`${tabId}-content`);
+                if (!activeContent) return;
+                
+                activeContent.classList.add('active');
+                
+                // Animate grid items
+                setTimeout(() => {
+                    const grid = activeContent.querySelector('.animated-grid');
+                    if (grid) grid.style.opacity = '1';
+                    
+                    const items = activeContent.querySelectorAll('.feature-block, .benefit-card');
+                    items.forEach((item, index) => {
+                        item.style.animation = 'none';
+                        item.offsetHeight; // Force reflow
+                        item.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
+                    });
+                }, 100);
+            });
+        });
     };
     
-    // Call the function to initialize the solution tabs
-    initSolutionTabs();
+    // Initialize the before/after comparison slider
+    const initComparisonSlider = () => {
+        const slider = document.querySelector('.comparison-slider');
+        if (!slider) return;
+        
+        const beforeImage = slider.querySelector('.before-image');
+        const sliderHandle = slider.querySelector('.slider-handle');
+        if (!beforeImage || !sliderHandle) return;
+        
+        let isDragging = false;
+        
+        const updateSliderPosition = (x) => {
+            const sliderRect = slider.getBoundingClientRect();
+            let position = (x - sliderRect.left) / sliderRect.width;
+            position = Math.max(0.1, Math.min(0.9, position));
+            
+            beforeImage.style.width = `${position * 100}%`;
+            sliderHandle.style.left = `${position * 100}%`;
+        };
+        
+        // Initial position
+        updateSliderPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
+        
+        // Mouse events
+        slider.addEventListener('mousedown', (e) => {
+            e.preventDefault();
+            isDragging = true;
+            updateSliderPosition(e.clientX);
+        });
+        
+        window.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            updateSliderPosition(e.clientX);
+        });
+        
+        window.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+        
+        // Touch events
+        slider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            updateSliderPosition(e.touches[0].clientX);
+        });
+        
+        window.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+            updateSliderPosition(e.touches[0].clientX);
+        });
+        
+        window.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+        
+        // Reset on window resize
+        window.addEventListener('resize', () => {
+            updateSliderPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
+        });
+    };
     
-    // New Features/Advantages tab functionality
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const featuresContents = document.querySelectorAll('.features-content');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Remove active class from all buttons
-            tabBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            btn.classList.add('active');
+    // Feature hover animation
+    const initFeatureHover = () => {
+        const features = document.querySelectorAll('.feature-block');
+        features.forEach(feature => {
+            feature.addEventListener('mouseenter', () => {
+                const icon = feature.querySelector('.feature-icon i');
+                if (icon) {
+                    icon.classList.add('fa-beat');
+                    setTimeout(() => {
+                        icon.classList.remove('fa-beat');
+                    }, 500);
+                }
+            });
+        });
+    };
+    
+    // Play button interaction for demo video
+    const playButton = document.querySelector('.play-button');
+    if (playButton) {
+        playButton.addEventListener('click', () => {
+            // In a real implementation, this would trigger the video to play
+            playButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+            setTimeout(() => {
+                playButton.innerHTML = '<i class="fas fa-pause"></i>';
+            }, 1000);
+        });
+    }
+    
+    // Simple scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            // Let the browser handle the click naturally
+            // No preventDefault() means it will jump to the section immediately
             
-            // Hide all content sections
-            featuresContents.forEach(content => content.classList.remove('active'));
-            
-            // Show corresponding content
-            const tabId = btn.getAttribute('data-tab');
-            document.getElementById(`${tabId}-content`).classList.add('active');
+            // Just close mobile menu if open
+            if (navLinks.classList.contains('active')) {
+                mobileMenuToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+                overlay.classList.remove('active');
+                body.classList.remove('no-scroll');
+            }
         });
     });
+    
+    // Initialize everything
+    initCursor();
+    initScrollEvents();
+    initAnimations();
+    initCarousel();
+    initMobileMenu();
+    initFormValidation();
+    initHeroCounter();
+    initButtonEffects();
+    enhanceTabSwitching();
+    initComparisonSlider();
+    initFeatureHover();
+    initSolutionTabs();
+    
+    // Flip cards on touch for mobile devices
+    const statsCards = document.querySelectorAll('.stats-card');
+    if (isTouchDevice()) {
+        statsCards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                const cardInner = card.querySelector('.stats-card-inner');
+                cardInner.style.transform = 
+                    cardInner.style.transform === 'rotateY(180deg)' 
+                        ? 'rotateY(0deg)' 
+                        : 'rotateY(180deg)';
+            });
+        });
+    }
+    
+    // Run the demo animation after a short delay when the page loads
+    setTimeout(() => {
+        runSystemDemo();
+    }, 1500);
 });
