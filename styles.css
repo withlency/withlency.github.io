@@ -2177,45 +2177,171 @@ h1 {
 .workflow-module {
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 1.5rem;
-    border-radius: 2rem;
-    background-color: #f8f7fb;
-    margin-bottom: 1rem;
-    transition: all 0.3s ease;
+    gap: 1.25rem;
+    padding: 1.2rem 1.8rem;
+    border-radius: 1rem;
+    background-color: rgba(248, 247, 251, 0.8);
+    margin-bottom: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(133, 17, 180, 0.06);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.03);
+    backdrop-filter: blur(5px);
+}
+
+.workflow-module::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-light), var(--primary-dark));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.workflow-module:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(133, 17, 180, 0.1);
+    background-color: white;
 }
 
 .workflow-module.active {
-    background-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    box-shadow: 0 8px 25px rgba(133, 17, 180, 0.25);
+    transform: translateY(-3px) scale(1.02);
+    border-color: transparent;
+}
+
+.workflow-module.active::before {
+    opacity: 0; /* Hide the side border when active */
+}
+
+.workflow-module::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    width: 20px;
+    height: 20px;
+    background: inherit;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-right: 1px solid rgba(133, 17, 180, 0.06);
+    border-bottom: 1px solid rgba(133, 17, 180, 0.06);
+    z-index: 1;
+}
+
+.workflow-module.active::after {
+    opacity: 1;
+    bottom: -10px;
 }
 
 .module-icon {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 3rem;
+    height: 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: white;
     border-radius: 50%;
     color: var(--primary-color);
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
+    font-size: 1.2rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 10px rgba(133, 17, 180, 0.1);
+    position: relative;
+    z-index: 2;
 }
 
 .workflow-module.active .module-icon {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px rgba(133, 17, 180, 0.3);
+    transform: scale(1.15);
+    box-shadow: 0 5px 18px rgba(133, 17, 180, 0.35);
+    background: white;
+}
+
+.module-icon i {
+    transition: all 0.4s ease;
+}
+
+.workflow-module.active .module-icon i {
+    animation: pulse-icon 1.5s infinite alternate;
+}
+
+@keyframes pulse-icon {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.2); }
 }
 
 .module-text {
     font-weight: 600;
-    font-size: 0.9rem;
-    color: var(--text-muted);
+    font-size: 1rem;
+    color: var(--text-dark);
     transition: all 0.3s ease;
+    letter-spacing: 0.01em;
+    position: relative;
+    z-index: 2;
 }
 
 .workflow-module.active .module-text {
     color: white;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Special styling for each module */
+.workflow-module[data-module="camera"] .module-icon {
+    color: #9c27b0;
+}
+
+.workflow-module[data-module="data"] .module-icon {
+    color: #2196f3;
+}
+
+.workflow-module[data-module="ai"] .module-icon {
+    color: #ff9800;
+}
+
+.workflow-module[data-module="detection"] .module-icon {
+    color: #e91e63;
+}
+
+.workflow-module[data-module="camera"]::before {
+    background: linear-gradient(to bottom, #9c27b0, #7b1fa2);
+    opacity: 0.7;
+}
+
+.workflow-module[data-module="data"]::before {
+    background: linear-gradient(to bottom, #2196f3, #1976d2);
+    opacity: 0.7;
+}
+
+.workflow-module[data-module="ai"]::before {
+    background: linear-gradient(to bottom, #ff9800, #f57c00);
+    opacity: 0.7;
+}
+
+.workflow-module[data-module="detection"]::before {
+    background: linear-gradient(to bottom, #e91e63, #c2185b);
+    opacity: 0.7;
+}
+
+.workflow-module.active[data-module="camera"] {
+    background: linear-gradient(135deg, #9c27b0, #7b1fa2);
+}
+
+.workflow-module.active[data-module="data"] {
+    background: linear-gradient(135deg, #2196f3, #1976d2);
+}
+
+.workflow-module.active[data-module="ai"] {
+    background: linear-gradient(135deg, #ff9800, #f57c00);
+}
+
+.workflow-module.active[data-module="detection"] {
+    background: linear-gradient(135deg, #e91e63, #c2185b);
 }
 
 .feed-container {
@@ -2339,43 +2465,161 @@ h1 {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90%;
-    max-width: 350px;
+    max-width: 360px;
     background-color: white;
-    border-radius: 0.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 0.8rem;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     opacity: 0;
     transition: all 0.5s ease;
     z-index: 10;
+    border: 1px solid rgba(231, 76, 60, 0.2);
 }
 
 .alert-notification.active {
     opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: alertPulse 0.5s ease;
+}
+
+@keyframes alertPulse {
+    0% { transform: translate(-50%, -50%) scale(0.95); opacity: 0; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
 }
 
 .alert-header {
-    padding: 0.75rem 1rem;
-    background-color: #f8f0f1;
+    padding: 1rem 1.25rem;
+    background-color: #FCE8E7;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     color: #e74c3c;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.05rem;
+    border-bottom: 1px solid rgba(231, 76, 60, 0.1);
+}
+
+.alert-header i {
+    font-size: 1.2rem;
 }
 
 .alert-body {
-    padding: 1rem;
+    padding: 1.25rem;
+    background-color: #FEFBFB;
 }
 
 .alert-row {
     display: flex;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.8rem;
+    align-items: center;
 }
 
 .alert-label {
-    min-width: 80px;
-    font-weight: 500;
+    min-width: 90px;
+    font-weight: 600;
     color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.alert-value {
+    color: #333;
+    font-weight: 500;
+}
+
+.status-alert {
+    color: #e74c3c;
+    font-weight: 600;
+    background-color: rgba(231, 76, 60, 0.1);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.alert-message {
+    padding: 0.5rem 0 0;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    border-top: 1px solid rgba(0,0,0,0.06);
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    line-height: 1.5;
+}
+
+.alert-actions {
+    display: flex;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    margin-top: 0.5rem;
+}
+
+.alert-btn {
+    flex: 1;
+    padding: 1rem;
+    border: none;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+.alert-btn.dismiss {
+    color: #777;
+}
+
+.alert-btn.acknowledge {
+    color: white;
+    font-weight: 600;
+    background-color: var(--primary-color);
+    margin: 0.6rem;
+    margin-left: 0.3rem;
+    border-radius: 0.5rem;
+}
+
+.alert-btn.dismiss {
+    margin: 0.6rem;
+    margin-right: 0.3rem;
+    border-radius: 0.5rem;
+    background-color: #f1f1f1;
+}
+
+.alert-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.alert-btn.acknowledge:hover {
+    background-color: var(--primary-dark);
+}
+
+.detection-dot {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 0 0 10px #e74c3c;
+    animation: pulse-dot 1s infinite alternate;
+    pointer-events: none;
+}
+
+.detection-dot.active {
+    opacity: 1;
+}
+
+@keyframes pulse-dot {
+    0% {
+        transform: translate(-50%, -50%) scale(0.8);
+        box-shadow: 0 0 5px #e74c3c;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 15px #e74c3c;
+    }
 }
 
 .alert-value {

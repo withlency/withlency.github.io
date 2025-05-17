@@ -409,6 +409,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const modules = document.querySelectorAll('.workflow-module');
         const feedContainer = document.querySelector('.feed-container');
         const alertNotification = document.querySelector('.alert-notification');
+        const detectionDot = document.querySelector('.cow-3 .detection-dot');
         
         if (!steps.length || !modules.length) return;
         
@@ -417,6 +418,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modules.forEach(module => module.classList.remove('active'));
         if (feedContainer) feedContainer.classList.remove('active');
         if (alertNotification) alertNotification.classList.remove('active');
+        if (detectionDot) detectionDot.classList.remove('active');
         
         // Animation timeline
         setTimeout(() => {
@@ -448,11 +450,35 @@ document.addEventListener('DOMContentLoaded', () => {
             if (modules[2]) modules[2].classList.remove('active');
             if (steps[3]) steps[3].classList.add('active');
             if (modules[3]) modules[3].classList.add('active');
+            if (detectionDot) detectionDot.classList.add('active');
         }, 6000);
         
         setTimeout(() => {
-            // Show alert notification
-            if (alertNotification) alertNotification.classList.add('active');
+            // Show alert notification with current time
+            if (alertNotification) {
+                // Get current time
+                const now = new Date();
+                let hours = now.getHours();
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+                const ampm = hours >= 12 ? 'PM' : 'AM';
+                
+                hours = hours % 12;
+                hours = hours ? hours : 12; // Convert 0 to 12 for 12 AM
+                const hoursStr = hours.toString().padStart(2, '0');
+                
+                // Format time as HH:MM:SS AM/PM
+                const timeString = `${hoursStr}:${minutes}:${seconds} ${ampm}`;
+                
+                // Update time in the notification
+                const timeElement = alertNotification.querySelector('.current-time');
+                if (timeElement) {
+                    timeElement.textContent = timeString;
+                }
+                
+                // Show the notification
+                alertNotification.classList.add('active');
+            }
         }, 7500);
         
         // Reset after completing
@@ -461,7 +487,8 @@ document.addEventListener('DOMContentLoaded', () => {
             if (modules[3]) modules[3].classList.remove('active');
             if (feedContainer) feedContainer.classList.remove('active');
             if (alertNotification) alertNotification.classList.remove('active');
-        }, 11000);
+            if (detectionDot) detectionDot.classList.remove('active');
+        }, 15000);
     };
     
     // Solution Section Interactivity
@@ -507,13 +534,14 @@ document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
+                        console.log("System interactive in view, running demo...");
                         setTimeout(() => {
                             runSystemDemo();
                         }, 500);
-                        observer.unobserve(entry.target);
+                        observer.unobserve(entry.target); // Only run once when first scrolled to
                     }
                 });
-            }, { threshold: 0.5 });
+            }, { threshold: 0.3 }); // Lower threshold to trigger earlier
             
             observer.observe(systemInteractive);
         }
@@ -588,9 +616,4 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
-    
-    // Run the demo animation after a short delay when the page loads
-    setTimeout(() => {
-        runSystemDemo();
-    }, 1500);
 });
