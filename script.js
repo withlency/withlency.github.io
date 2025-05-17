@@ -518,107 +518,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     
-    // Enhanced tab switching with animation
-    const enhanceTabSwitching = () => {
-        const tabBtns = document.querySelectorAll('.tab-btn');
-        const contents = document.querySelectorAll('.features-content');
-        
-        if (!tabBtns.length) return;
-        
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                // Remove active class
-                tabBtns.forEach(b => b.classList.remove('active'));
-                contents.forEach(c => {
-                    c.classList.remove('active');
-                    const grid = c.querySelector('.animated-grid');
-                    if (grid) grid.style.opacity = '0';
-                });
-                
-                // Add active class
-                btn.classList.add('active');
-                const tabId = btn.getAttribute('data-tab');
-                const activeContent = document.getElementById(`${tabId}-content`);
-                if (!activeContent) return;
-                
-                activeContent.classList.add('active');
-                
-                // Animate grid items
-                setTimeout(() => {
-                    const grid = activeContent.querySelector('.animated-grid');
-                    if (grid) grid.style.opacity = '1';
-                    
-                    const items = activeContent.querySelectorAll('.feature-block, .benefit-card');
-                    items.forEach((item, index) => {
-                        item.style.animation = 'none';
-                        item.offsetHeight; // Force reflow
-                        item.style.animation = `fadeInUp 0.5s ease forwards ${index * 0.1}s`;
-                    });
-                }, 100);
-            });
-        });
-    };
-    
-    // Initialize the before/after comparison slider
-    const initComparisonSlider = () => {
-        const slider = document.querySelector('.comparison-slider');
-        if (!slider) return;
-        
-        const beforeImage = slider.querySelector('.before-image');
-        const sliderHandle = slider.querySelector('.slider-handle');
-        if (!beforeImage || !sliderHandle) return;
-        
-        let isDragging = false;
-        
-        const updateSliderPosition = (x) => {
-            const sliderRect = slider.getBoundingClientRect();
-            let position = (x - sliderRect.left) / sliderRect.width;
-            position = Math.max(0.1, Math.min(0.9, position));
-            
-            beforeImage.style.width = `${position * 100}%`;
-            sliderHandle.style.left = `${position * 100}%`;
-        };
-        
-        // Initial position
-        updateSliderPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
-        
-        // Mouse events
-        slider.addEventListener('mousedown', (e) => {
-            e.preventDefault();
-            isDragging = true;
-            updateSliderPosition(e.clientX);
-        });
-        
-        window.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            updateSliderPosition(e.clientX);
-        });
-        
-        window.addEventListener('mouseup', () => {
-            isDragging = false;
-        });
-        
-        // Touch events
-        slider.addEventListener('touchstart', (e) => {
-            isDragging = true;
-            updateSliderPosition(e.touches[0].clientX);
-        });
-        
-        window.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            updateSliderPosition(e.touches[0].clientX);
-        });
-        
-        window.addEventListener('touchend', () => {
-            isDragging = false;
-        });
-        
-        // Reset on window resize
-        window.addEventListener('resize', () => {
-            updateSliderPosition(slider.getBoundingClientRect().left + slider.getBoundingClientRect().width * 0.5);
-        });
-    };
-    
     // Feature hover animation
     const initFeatureHover = () => {
         const features = document.querySelectorAll('.feature-block');
@@ -672,8 +571,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormValidation();
     initHeroCounter();
     initButtonEffects();
-    enhanceTabSwitching();
-    initComparisonSlider();
     initFeatureHover();
     initSolutionTabs();
     

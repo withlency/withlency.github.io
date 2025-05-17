@@ -1659,6 +1659,42 @@ h1 {
     animation: fadeInUp 0.5s ease forwards;
 }
 
+.section-subheader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subheader h3 {
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: var(--text-dark);
+}
+
+.section-subheader p {
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.benefits-showcase {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+/* Responsive adjustment for the benefits grid */
+@media (max-width: 992px) {
+    .benefits-showcase {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits-showcase {
+        grid-template-columns: 1fr;
+    }
+}
+
 .benefit-card h4 {
     margin-bottom: 0.75rem;
     color: var(--text-dark);
