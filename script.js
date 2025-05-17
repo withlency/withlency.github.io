@@ -569,4 +569,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Call the function to initialize the solution tabs
     initSolutionTabs();
     
+    // New Features/Advantages tab functionality
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const featuresContents = document.querySelectorAll('.features-content');
+
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            tabBtns.forEach(b => b.classList.remove('active'));
+            // Add active class to clicked button
+            btn.classList.add('active');
+            
+            // Hide all content sections
+            featuresContents.forEach(content => content.classList.remove('active'));
+            
+            // Show corresponding content
+            const tabId = btn.getAttribute('data-tab');
+            document.getElementById(`${tabId}-content`).classList.add('active');
+        });
+    });
 });
