@@ -493,7 +493,8 @@ h1 {
 .calvalert-logo {
     width: 100%;
     filter: drop-shadow(0 10px 30px rgba(133, 17, 180, 0.2));
-    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: filter 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    animation: logoFloat 6s ease-in-out infinite;
 }
 
 .logo-container:hover .calvalert-logo {
@@ -1720,6 +1721,18 @@ h1 {
 .fade-in.show {
     opacity: 1;
     transform: translateY(0);
+}
+
+@keyframes logoFloat {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(0.5deg);
+    }
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
 }
 
 @keyframes revealText {
