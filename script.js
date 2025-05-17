@@ -469,40 +469,41 @@ document.addEventListener('DOMContentLoaded', () => {
         const tabItems = document.querySelectorAll('.tab-item');
         const tabContents = document.querySelectorAll('.tab-content');
         
-        if (!tabItems.length) return;
-        
-        tabItems.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // Remove active class from all tabs
-                tabItems.forEach(t => t.classList.remove('active'));
-                tabContents.forEach(c => c.classList.remove('active'));
-                
-                // Add active class to clicked tab
-                tab.classList.add('active');
-                
-                // Show corresponding content
-                const tabId = tab.getAttribute('data-tab');
-                const tabContent = document.getElementById(`${tabId}-tab`);
-                if (tabContent) tabContent.classList.add('active');
-                
-                // Run demo animation if system tab is selected
-                if (tabId === 'system') {
-                    setTimeout(() => {
-                        runSystemDemo();
-                    }, 300);
-                }
+        // Set up tab switching if tabs exist
+        if (tabItems.length) {
+            tabItems.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Remove active class from all tabs
+                    tabItems.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(c => c.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    tab.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = tab.getAttribute('data-tab');
+                    const tabContent = document.getElementById(`${tabId}-tab`);
+                    if (tabContent) tabContent.classList.add('active');
+                    
+                    // Run demo animation if system tab is selected
+                    if (tabId === 'system') {
+                        setTimeout(() => {
+                            runSystemDemo();
+                        }, 300);
+                    }
+                });
             });
-        });
+        }
         
-        // Initialize the demo
+        // Initialize the replay button - this should run regardless of tabs
         const replayButton = document.getElementById('replayDemo');
         if (replayButton) {
             replayButton.addEventListener('click', runSystemDemo);
         }
         
-        // Auto-run the demo when in view
-        const systemTab = document.getElementById('system-tab');
-        if (systemTab) {
+        // Auto-run the demo when in view - this should run regardless of tabs
+        const systemInteractive = document.querySelector('.system-interactive');
+        if (systemInteractive) {
             const observer = new IntersectionObserver(entries => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -514,7 +515,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }, { threshold: 0.5 });
             
-            observer.observe(systemTab);
+            observer.observe(systemInteractive);
         }
     };
     
