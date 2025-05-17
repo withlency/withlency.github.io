@@ -39,6 +39,20 @@ document.addEventListener('DOMContentLoaded', () => {
     initFormValidation();
     initHeroCounter();
     initButtonEffects();
+        
+    // Flip cards on touch for mobile devices
+    const statsCards = document.querySelectorAll('.stats-card');
+    if (isTouchDevice()) {
+        statsCards.forEach(card => {
+            card.addEventListener('touchstart', () => {
+                const cardInner = card.querySelector('.stats-card-inner');
+                cardInner.style.transform = 
+                    cardInner.style.transform === 'rotateY(180deg)' 
+                        ? 'rotateY(0deg)' 
+                        : 'rotateY(180deg)';
+            });
+        });
+    }
     
     // Functions
     function initCursor() {

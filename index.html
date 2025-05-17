@@ -102,57 +102,135 @@
                     <p>Manual monitoring is exhausting and ineffective, especially at night when most calvings occur.</p>
                 </div>
                 
-                <div class="stats-grid">
-                    <div class="stat-card fade-in">
-                        <div class="stat-number">
-                            <span class="counter" data-count="57">57</span>
-                            <span class="symbol">%</span>
+                <div class="stats-container">
+                    <div class="stats-card-wrapper">
+                        <div class="stats-card fade-in" data-stat="57%">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="57">0</span>
+                                        <span class="symbol">%</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>of calves die within 24 hours if calving complications are missed or not addressed on time</p>
+                                </div>
+                            </div>
                         </div>
-                        <p>of calves die within 24 hours if calving complications are missed or not addressed on time</p>
-                    </div>
-                    
-                    <div class="stat-card fade-in">
-                        <div class="stat-number">
-                            <span class="counter" data-count="576">576</span>
-                            <span class="symbol">M</span>
+                        
+                        <div class="stats-card fade-in" data-stat="576M">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="576">0</span>
+                                        <span class="symbol">M</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>lost annually in the EU from preventable calving complications</p>
+                                </div>
+                            </div>
                         </div>
-                        <p>lost annually in the EU from preventable calving complications</p>
-                    </div>
-                    
-                    <div class="stat-card fade-in">
-                        <div class="stat-number">
-                            <span class="counter" data-count="5">5</span>
-                            <span class="symbol">×</span>
+                        
+                        <div class="stats-card fade-in" data-stat="5×">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="5">0</span>
+                                        <span class="symbol">×</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>increased risk of calf death if dystocia is not addressed quickly</p>
+                                </div>
+                            </div>
                         </div>
-                        <p>increased risk of calf death if dystocia is not addressed quickly</p>
                     </div>
                 </div>
 
-                <div class="approach-section fade-in">
-                    <h3>Current Approach: Exhausting & Ineffective</h3>
-                    <ul class="approach-list">
-                        <li>24/7 manual monitoring requiring round-the-clock staffing</li>
-                        <li>Especially challenging during nighttime hours</li>
-                        <li>Labor-intensive process taking attention away from other farm tasks</li>
-                        <li>Unreliable systems not optimized for calving detection</li>
-                        <li>Invasive, sensor-based systems that are expensive to maintain</li>
-                    </ul>
+                <div class="current-approach-container fade-in">
+                    <div class="approach-header">
+                        <div class="approach-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Current Approaches: Exhausting & Ineffective</h3>
+                    </div>
+                    <div class="approach-content">
+                        <div class="approach-grid three-column">
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p>Traditional methods require exhausting 24/7 manual monitoring with round-the-clock staffing, leading to farmer burnout</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-moon"></i>
+                                </div>
+                                <p>Nighttime monitoring is particularly challenging yet crucial, as most calvings occur during these hours</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-user-clock"></i>
+                                </div>
+                                <p>Manual monitoring diverts valuable labor resources from other essential farm operations, reducing overall productivity</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <p>Existing detection systems lack reliability and precision, often missing critical calving events or giving false alarms</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <p>Sensor-based systems are physically invasive for animals, require a device per cow, and are prone to loss or damage</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <p>Other available solutions lock farmers into expensive proprietary ecosystems with high maintenance costs</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 
-                <div class="financial-impact fade-in">
-                    <h3>Financial Impact</h3>
-                    <div class="impact-categories">
-                        <div class="impact-category">
-                            <h4>Direct Losses</h4>
-                            <p>Calf mortality, reduced milk yield, and veterinary interventions</p>
+                <div class="impact-dashboard fade-in">
+                    <div class="impact-header">
+                        <h3>Financial Impact</h3>
+                        <div class="impact-meter">
+                            <div class="impact-meter-bar"></div>
                         </div>
-                        <div class="impact-category">
-                            <h4>Labor Costs</h4>
-                            <p>24/7 monitoring during calving season, especially overnight</p>
+                    </div>
+                    <div class="impact-cards">
+                        <div class="impact-card-mini" data-impact="high">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Direct Losses</h4>
+                                <p>Calf mortality, reduced milk yield, and veterinary interventions</p>
+                            </div>
                         </div>
-                        <div class="impact-category">
-                            <h4>Long-term Impact</h4>
-                            <p>Reduced herd productivity and resource efficiency</p>
+                        <div class="impact-card-mini" data-impact="medium">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Labor Costs</h4>
+                                <p>24/7 monitoring during calving season, especially overnight</p>
+                            </div>
+                        </div>
+                        <div class="impact-card-mini" data-impact="ongoing">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Long-term Impact</h4>
+                                <p>Reduced herd productivity and resource efficiency</p>
+                            </div>
                         </div>
                     </div>
                 </div>
