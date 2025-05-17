@@ -602,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initButtonEffects();
     initFeatureHover();
     initSolutionTabs();
+    initPilotMap();
     
     // Flip cards on touch for mobile devices
     const statsCards = document.querySelectorAll('.stats-card');
@@ -614,6 +615,74 @@ document.addEventListener('DOMContentLoaded', () => {
                         ? 'rotateY(0deg)' 
                         : 'rotateY(180deg)';
             });
+        });
+    }
+
+    // Initialize the map with pilot locations
+    function initPilotMap() {
+        const mapElement = document.getElementById('pilot-map');
+        
+        if (!mapElement) return;
+        
+        // Cyprus coordinates
+        const cyprusLocation = [35.1264, 33.4299];
+        
+        // Initialize map centered on Cyprus
+        const map = L.map('pilot-map').setView(cyprusLocation, 6);
+        
+        // Add OpenStreetMap tiles
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        
+        // Create a custom pulsing dot icon
+        const pulsingDotIcon = L.divIcon({
+            className: 'pulsing-dot-icon',
+            html: '<div class="pulsing-dot"></div>',
+            iconSize: [20, 20],
+            iconAnchor: [10, 10]
+        });
+        
+        // Add marker for Cyprus with custom icon
+        const cyprusMarker = L.marker(cyprusLocation, {
+            icon: pulsingDotIcon
+        }).addTo(map);
+        
+        // Add popup for Cyprus marker
+        const popupContent = `
+            <div class="popup-content">
+                <h4>Active Pilot Site</h4>
+                <p>Cyprus - Testing since January 2025</p>
+            </div>
+        `;
+        
+        cyprusMarker.bindPopup(popupContent, {
+            className: 'map-popup'
+        }).openPopup();
+        
+        // Add marker for Netherlands (future site)
+        const netherlandsLocation = [52.1326, 5.2913];
+        
+        const futureIcon = L.divIcon({
+            className: 'future-location-icon',
+            html: '<div class="future-dot"></div>',
+            iconSize: [12, 12],
+            iconAnchor: [6, 6]
+        });
+        
+        const netherlandsMarker = L.marker(netherlandsLocation, {
+            icon: futureIcon
+        }).addTo(map);
+        
+        const futurePopupContent = `
+            <div class="popup-content">
+                <h4>Upcoming Pilot Site</h4>
+                <p>Netherlands - Scheduled for Q3 2025</p>
+            </div>
+        `;
+        
+        netherlandsMarker.bindPopup(futurePopupContent, {
+            className: 'map-popup'
         });
     }
 });

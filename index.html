@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
 </head>
 <body>
     <div class="cursor"></div>
@@ -25,9 +26,9 @@
             <ul class="nav-links">
                 <li><a href="#problem" class="nav-link">Problem</a></li>
                 <li><a href="#solution" class="nav-link">Solution</a></li>
-                <li><a href="#impact" class="nav-link">Impact</a></li>
-                <li><a href="#team" class="nav-link">Team</a></li>
+                <li><a href="#validation" class="nav-link">Validation</a></li>
                 <li><a href="#partnerships" class="nav-link">Partnerships</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
             </ul>
             <div class="cta-button">
                 <a href="#signup" class="btn primary-btn">Sign Up</a>
@@ -513,7 +514,7 @@
                 
                 <div class="center-cta fade-in">
                     <a href="#signup" class="btn primary-btn">
-                        <span>Request a Demo</span>
+                        <span>Learn more about our MVP</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -581,9 +582,7 @@
                 
                 <div class="map-container fade-in">
                     <h3>CalvAlert Pilot Locations</h3>
-                    <div class="map-placeholder">
-                        <!-- Interactive map showing pilot farms will go here -->
-                    </div>
+                    <div id="pilot-map" class="interactive-map"></div>
                 </div>
                 
                 <div class="center-cta fade-in">
@@ -595,46 +594,83 @@
             </div>
         </section>
 
-        <!-- Impact Section -->
-        <section id="impact" class="section-container section-light">
+        <!-- Partnerships Section -->
+        <section id="partnerships" class="section-container section-light">
             <div class="container">
                 <div class="section-header fade-in">
-                    <h2>Positive Impact</h2>
+                    <h2>Partnerships & Funding</h2>
                     <div class="section-line"></div>
                 </div>
                 
-                <div class="impact-grid">
-                    <div class="impact-card fade-in">
-                        <div class="impact-icon">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <h3>Animal Welfare</h3>
-                        <p>Boost calf and cow survival rates by enabling timely intervention during complicated births.</p>
+                <!-- Incubator Partnership Subsection -->
+                <div class="subsection fade-in">
+                    <div class="subsection-header">
+                        <h3>Incubator Program Participation</h3>
                     </div>
                     
-                    <div class="impact-card fade-in">
-                        <div class="impact-icon">
-                            <i class="fas fa-hand-holding-usd"></i>
+                    <div class="partnership-intro">
+                        <h4>Proud to be part of the UtrechtInc Incubator Program</h4>
+                        <div class="partner-logo-container">
+                            <a href="https://utrechtinc.nl/" target="_blank">
+                                <img src="assets/logos/utrechtinc.png" alt="UtrechtInc Logo" class="partner-logo">
+                            </a>
                         </div>
-                        <h3>Financial Security</h3>
-                        <p>Reduce financial losses from calf mortality, decreased milk yield, and veterinary costs.</p>
                     </div>
                     
-                    <div class="impact-card fade-in">
-                        <div class="impact-icon">
-                            <i class="fas fa-utensils"></i>
+                    <div class="benefits-grid">
+                        <div class="benefit-card fade-in">
+                            <div class="benefit-icon">
+                                <i class="fas fa-user-tie"></i>
+                            </div>
+                            <h4>Mentorship</h4>
+                            <p>Access to industry experts and experienced entrepreneurs.</p>
                         </div>
-                        <h3>Food Security</h3>
-                        <p>Strengthen food security through healthier herds and more sustainable farming practices.</p>
+                        
+                        <div class="benefit-card fade-in">
+                            <div class="benefit-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h4>Networking</h4>
+                            <p>Connections with investors, partners, and potential customers.</p>
+                        </div>
+                        
+                        <div class="benefit-card fade-in">
+                            <div class="benefit-icon">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <h4>Early-Stage Support</h4>
+                            <p>Resources and guidance to accelerate development.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Funding Subsection -->
+                <div class="subsection fade-in">
+                    <div class="subsection-header">
+                        <h3>Funding Support</h3>
                     </div>
                     
-                    <div class="impact-card fade-in">
-                        <div class="impact-icon">
-                            <i class="fas fa-leaf"></i>
+                    <div class="grant-container">
+                        <div class="grant-card">
+                            <div class="grant-details">
+                                <div class="grant-amount">€1,000</div>
+                                <h4>UU Playground Grant</h4>
+                                <p>We have been awarded a grant to boost our idea and accelerate development of CalvAlert.</p>
+                            </div>
+                            <div class="grant-logo">
+                                <a href="https://www.uu.nl/en/organisation/playground" target="_blank">
+                                    <img src="assets/logos/uu-playground.png" alt="UU Playground Logo" class="partner-logo">
+                                </a>
+                            </div>
                         </div>
-                        <h3>Sustainability</h3>
-                        <p>Promote sustainable farming with smarter resource use and reduced environmental impact.</p>
                     </div>
+                </div>
+                
+                <div class="center-cta fade-in">
+                    <a href="#signup" class="btn primary-btn">
+                        <span>Explore Collaboration Opportunities</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
                 </div>
             </div>
         </section>
@@ -654,9 +690,9 @@
                 <div class="team-grid">
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team1.png" alt="Andreas Pattichis">
+                            <img src="assets/team/andreas-pattichis.png" alt="Andreas Pattichis">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/andreas-pattichis/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -667,9 +703,9 @@
                     
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team2.png" alt="Nikolas Stavrou">
+                            <img src="assets/team/nikolas-stavrou.png" alt="Nikolas Stavrou">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/nikolasstavrou/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -680,9 +716,9 @@
                     
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team3.png" alt="Andreas Alexandrou">
+                            <img src="assets/team/andreas-alexandrou.png" alt="Andreas Alexandrou">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/andreas-alexandrou-056528242/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -693,9 +729,9 @@
                     
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team4.png" alt="Kyriakos Kyriakou">
+                            <img src="assets/team/kyriakos-kyriakou.png" alt="Kyriakos Kyriakou">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/kyriakos-kyriakou-2a4977207/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -706,9 +742,9 @@
                     
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team5.png" alt="Sotiris Zenios">
+                            <img src="assets/team/sotiris-zenios.png" alt="Sotiris Zenios">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/sotiris-zenios-a7b22819a/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -719,9 +755,9 @@
                     
                     <div class="team-member fade-in">
                         <div class="member-photo">
-                            <img src="assets/team/team6.png" alt="Christos Eleftheriou">
+                            <img src="assets/team/christos-eleftheriou.png" alt="Christos Eleftheriou">
                             <div class="member-overlay">
-                                <a href="https://linkedin.com/" target="_blank" class="social-link">
+                                <a href="https://www.linkedin.com/in/christos-eleftheriou-35b56b347/" target="_blank" class="social-link">
                                     <i class="fab fa-linkedin-in"></i>
                                 </a>
                             </div>
@@ -729,53 +765,6 @@
                         <h3>Christos Eleftheriou</h3>
                         <p>AI Engineer</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Partnerships Section -->
-        <section id="partnerships" class="section-container section-light">
-            <div class="container">
-                <div class="section-header fade-in">
-                    <h2>Strategic Partnerships</h2>
-                    <div class="section-line"></div>
-                </div>
-                
-                <div class="partnership-intro fade-in">
-                    <h3>Proud to be part of the UtrechtInc Incubator Program</h3>
-                </div>
-                
-                <div class="benefits-grid">
-                    <div class="benefit-card fade-in">
-                        <div class="benefit-icon">
-                            <i class="fas fa-user-tie"></i>
-                        </div>
-                        <h4>Mentorship</h4>
-                        <p>Access to industry experts and experienced entrepreneurs.</p>
-                    </div>
-                    
-                    <div class="benefit-card fade-in">
-                        <div class="benefit-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h4>Networking</h4>
-                        <p>Connections with investors, partners, and potential customers.</p>
-                    </div>
-                    
-                    <div class="benefit-card fade-in">
-                        <div class="benefit-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h4>Early-Stage Support</h4>
-                        <p>Resources and guidance to accelerate development.</p>
-                    </div>
-                </div>
-                
-                <div class="center-cta fade-in">
-                    <a href="#signup" class="btn primary-btn">
-                        <span>Explore Collaboration Opportunities</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
                 </div>
             </div>
         </section>
@@ -813,16 +802,17 @@
                             <div class="form-group full-width">
                                 <p class="checkbox-label">I'm interested in:</p>
                                 <div class="checkbox-grid">
+
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" name="interest" value="learn-more">
+                                        <span class="checkmark"></span>
+                                        <span>Learn more about CalvAlert</span>
+                                    </label>
+
                                     <label class="checkbox-container">
                                         <input type="checkbox" name="interest" value="notify">
                                         <span class="checkmark"></span>
                                         <span>Being notified when the MVP is ready</span>
-                                    </label>
-                                    
-                                    <label class="checkbox-container">
-                                        <input type="checkbox" name="interest" value="demo">
-                                        <span class="checkmark"></span>
-                                        <span>Requesting a demo</span>
                                     </label>
                                     
                                     <label class="checkbox-container">
@@ -866,9 +856,9 @@
                     <ul>
                         <li><a href="#problem">Problem</a></li>
                         <li><a href="#solution">Solution</a></li>
-                        <li><a href="#impact">Impact</a></li>
+                        <li><a href="#validation">Validation</a></li>
                         <li><a href="#team">Team</a></li>
-                        <li><a href="#partnerships">Partnerships</a></li>
+                        <li><a href="#partnerships">Partnerships & Funding</a></li>
                     </ul>
                 </div>
                 
@@ -892,5 +882,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
 </body>
 </html>
