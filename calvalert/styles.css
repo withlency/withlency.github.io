@@ -4781,6 +4781,10 @@ h1 {
     .section-container {
         padding: 80px 0;
     }
+
+    .scroll-indicator {
+        display: none;
+    }
 }
 
 @media (max-width: 768px) {
