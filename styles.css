@@ -1058,6 +1058,28 @@ h1 {
     .impact-dashboard {
         padding: 1.5rem;
     }
+
+    .hero {
+    min-height: 80vh; /* Even shorter for small devices */
+    padding-top: 5rem; /* Slightly reduced top padding */
+    }
+
+    .logo-container {
+        max-width: 240px; /* Even smaller logo container for very small screens */
+    }
+
+    .stat-line {
+        margin-right: 1.5rem; /* Reduce margin for tighter layout */
+    }
+
+    .hero-stat p {
+        font-size: 0.95rem; /* Slightly smaller text */
+    }
+
+    /* Ensure scroll indicator is hidden */
+    .scroll-indicator {
+        display: none;
+    }
 }
 
 /* Force a 3x2 grid layout */
@@ -4880,6 +4902,63 @@ h1 {
     .phase-content::before {
         display: none;
     }
+
+    .hero {
+    min-height: 85vh; /* Reduced height to fit more content without scrolling */
+    padding: 5.5rem 0 1rem; /* Adjusted padding to show more content initially */
+    }
+
+    .hero .container {
+        gap: 1.5rem; /* Reduced gap between elements for tighter layout */
+    }
+
+    .hero-content {
+        margin-top: -0.5rem; /* Move content up slightly */
+    }
+
+    .logo-container {
+        max-width: 280px; /* Smaller logo container while keeping logo visible */
+        margin-bottom: 1rem; /* Add some space below the logo */
+    }
+
+    .calvalert-logo {
+        width: 100%; /* Make logo fit container */
+    }
+
+    .hero-stat {
+        padding: 1rem 1.5rem; /* Slightly reduced padding */
+        margin-bottom: 1.5rem; /* Less bottom margin */
+    }
+
+    /* Remove "Learn More" button on mobile */
+    .text-btn {
+        display: none; /* Hide the Learn More button completely */
+    }
+
+    .cta-group {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+        gap: 0.75rem; /* Reduced space between buttons */
+        width: 100%; /* Full width buttons */
+        align-items: center;
+    }
+
+    .cta-group .primary-btn {
+        width: 80%; /* Make buttons wider but not full width */
+    }
+
+    /* Disable animations for mobile */
+    .hero-stat, .cta-group, .reveal-line, .highlight, .logo-container {
+        animation: none !important; /* Remove all animations */
+        opacity: 1 !important; /* Ensure elements are visible */
+        transform: none !important; /* Reset any transforms */
+    }
+
+    /* Reset animation states */
+    .reveal-text, .reveal-line, .highlight::after {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
 }
 
 .interactive-map {
@@ -5017,3 +5096,4 @@ h1 {
         text-align: center;
     }
 }
+
