@@ -384,7 +384,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Reset transform when mouse leaves
             document.addEventListener('mouseleave', () => {
-                logoContainer.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
+                if (logoContainer) logoContainer.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
             });
         }
 
