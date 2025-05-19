@@ -622,13 +622,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Flip cards on touch for mobile devices
     const statsCards = document.querySelectorAll('.stats-card');
     if (isTouchDevice()) {
+        // For mobile devices, don't add flip behavior
+        // The cards will display in static format per our CSS media queries
+        console.log("Mobile device detected - disabling card flip behavior");
+    } else {
+        // Only add hover behavior for desktop
         statsCards.forEach(card => {
-            card.addEventListener('touchstart', () => {
+            card.addEventListener('mouseenter', () => {
                 const cardInner = card.querySelector('.stats-card-inner');
-                cardInner.style.transform = 
-                    cardInner.style.transform === 'rotateY(180deg)' 
-                        ? 'rotateY(0deg)' 
-                        : 'rotateY(180deg)';
+                cardInner.style.transform = 'rotateY(180deg)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                const cardInner = card.querySelector('.stats-card-inner');
+                cardInner.style.transform = 'rotateY(0deg)';
             });
         });
     }

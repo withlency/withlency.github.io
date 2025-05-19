@@ -734,7 +734,6 @@ h1 {
     }
 }
 
-/* Enhanced Problem Section */
 .stats-container {
     position: relative;
     margin-bottom: 3rem;
@@ -798,6 +797,75 @@ h1 {
     color: white;
     font-size: 1.1rem;
     font-weight: 500;
+}
+
+/* Mobile-specific styles for problem section stats cards */
+@media (max-width: 768px) {
+    /* Convert to static cards for mobile */
+    .stats-card {
+        height: auto;
+        margin-bottom: 1rem;
+    }
+    
+    .stats-card-inner {
+        transform-style: flat;
+        box-shadow: var(--shadow-sm);
+        transition: none;
+    }
+    
+    .stats-card:hover .stats-card-inner {
+        transform: none;
+    }
+    
+    /* Display front and back content in a single view */
+    .stats-card-front, .stats-card-back {
+        position: relative;
+        backface-visibility: visible;
+        transform: none;
+        padding: 1rem;
+    }
+    
+    .stats-card-front {
+        padding-bottom: 0.5rem;
+    }
+    
+    .stats-card-back {
+        background-color: rgba(133, 17, 180, 0.1);
+        color: var(--text-dark);
+        text-align: center;
+        padding-top: 0.5rem;
+    }
+    
+    .stats-card-back p {
+        color: var(--text-dark);
+        font-size: 0.9rem;
+        font-weight: 500;
+        margin: 0;
+    }
+    
+    .stat-number-large {
+        font-size: 3rem;
+    }
+    
+    .stat-number-large .symbol {
+        font-size: 1.5rem;
+    }
+    
+    /* Make approach grid single column */
+    .approach-grid.three-column {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    /* More compact layout for impact cards */
+    .impact-cards {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .impact-card-mini {
+        padding: 1.25rem;
+    }
 }
 
 .stat-number-large {
