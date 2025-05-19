@@ -282,64 +282,65 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                
-                // Simple validation
-                let isValid = true;
-                const requiredInputs = contactForm.querySelectorAll('[required]');
-                
-                requiredInputs.forEach(input => {
-                    if (!input.value.trim()) {
-                        input.classList.add('error');
-                        input.parentElement.classList.add('error-container');
-                        isValid = false;
-                    } else {
-                        input.classList.remove('error');
-                        input.parentElement.classList.remove('error-container');
-                    }
-                });
-                
-                // Check at least one checkbox is selected
-                const checkboxes = contactForm.querySelectorAll('input[type="checkbox"]');
-                const checkedOne = Array.from(checkboxes).some(checkbox => checkbox.checked);
-                
-                if (!checkedOne) {
+            // Only prevent default if validation fails
+            
+            // Simple validation
+            let isValid = true;
+            const requiredInputs = contactForm.querySelectorAll('[required]');
+            
+            requiredInputs.forEach(input => {
+                if (!input.value.trim()) {
+                    e.preventDefault(); // Prevent form submission if validation fails
+                    input.classList.add('error');
+                    input.parentElement.classList.add('error-container');
                     isValid = false;
-                    checkboxes.forEach(checkbox => {
-                        checkbox.parentElement.classList.add('error');
-                    });
                 } else {
-                    checkboxes.forEach(checkbox => {
-                        checkbox.parentElement.classList.remove('error');
-                    });
-                }
-                
-                if (isValid) {
-                    // Simulated form submission
-                    const submitBtn = contactForm.querySelector('.submit-btn');
-                    if (submitBtn) {
-                        // Disable button and show loading state
-                        submitBtn.disabled = true;
-                        const originalText = submitBtn.querySelector('.btn-text').textContent;
-                        submitBtn.querySelector('.btn-text').textContent = 'Sending...';
-                        submitBtn.querySelector('.btn-icon i').className = 'fas fa-spinner fa-spin';
-                        
-                        // Simulate API call with timeout
-                        setTimeout(() => {
-                            const formContainer = contactForm.parentElement;
-                            formContainer.innerHTML = `
-                                <div class="success-message">
-                                    <div class="success-icon">
-                                        <i class="fas fa-check"></i>
-                                    </div>
-                                    <h3>Thank You!</h3>
-                                    <p>We've received your request and will be in touch soon with updates about CalvAlert.</p>
-                                </div>
-                            `;
-                        }, 1500);
-                    }
+                    input.classList.remove('error');
+                    input.parentElement.classList.remove('error-container');
                 }
             });
+            
+            // Check at least one checkbox is selected
+            const checkboxes = contactForm.querySelectorAll('input[type="checkbox"]');
+            const checkedOne = Array.from(checkboxes).some(checkbox => checkbox.checked);
+            
+            if (!checkedOne) {
+                e.preventDefault(); // Prevent form submission if validation fails
+                isValid = false;
+                checkboxes.forEach(checkbox => {
+                    checkbox.parentElement.classList.add('error');
+                });
+            } else {
+                checkboxes.forEach(checkbox => {
+                    checkbox.parentElement.classList.remove('error');
+                });
+            }
+            
+            if (isValid) {
+                // Prepare selected interests to be sent as a single field
+                const selectedInterests = Array.from(checkboxes)
+                    .filter(checkbox => checkbox.checked)
+                    .map(checkbox => checkbox.value)
+                    .join(', ');
+                    
+                // Add a hidden field with combined interests
+                const interestsField = document.createElement('input');
+                interestsField.type = 'hidden';
+                interestsField.name = 'Selected Interests';
+                interestsField.value = selectedInterests;
+                contactForm.appendChild(interestsField);
+                
+                // Show loading state
+                const submitBtn = contactForm.querySelector('.submit-btn');
+                if (submitBtn) {
+                    submitBtn.disabled = true;
+                    submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+                    submitBtn.querySelector('.btn-icon i').className = 'fas fa-spinner fa-spin';
+                }
+                
+                // Form will submit normally to formsubmit.co
+            }
+        });
             
             // Clear error state on input
             const inputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], textarea');

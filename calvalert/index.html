@@ -983,7 +983,12 @@
                     </div>
                     
                     <div class="form-container">
-                        <form id="signup-form" class="contact-form">
+                        <form id="signup-form" class="contact-form" action="https://formsubmit.co/info@withlency.com" method="POST">
+                            <!-- Add these hidden fields right after the form opening tag -->
+                            <input type="text" name="_honey" style="display:none">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="https://withlency.com/calvalert/">
+                            <input type="hidden" name="_subject" value="New CalvAlert Inquiry">
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="name">Name</label>
