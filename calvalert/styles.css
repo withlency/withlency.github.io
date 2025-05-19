@@ -3203,7 +3203,7 @@ h1 {
 
 .company-logo img {
     width: 100%;
-    filter: drop-shadow(0 5px 15px rgba(133, 17, 180, 0.2));
+    /* filter: drop-shadow(0 5px 15px rgba(133, 17, 180, 0.2)); */
     transition: all 0.3s ease;
 }
 
