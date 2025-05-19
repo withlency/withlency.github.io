@@ -804,41 +804,48 @@ h1 {
     /* Convert to static cards for mobile */
     .stats-card {
         height: auto;
-        margin-bottom: 1rem;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow-sm);
     }
     
     .stats-card-inner {
         transform-style: flat;
-        box-shadow: var(--shadow-sm);
+        box-shadow: none;
         transition: none;
+        transform: none !important;
     }
     
     .stats-card:hover .stats-card-inner {
-        transform: none;
+        transform: none !important;
     }
     
-    /* Display front and back content in a single view */
+    /* Stack front and back content vertically */
     .stats-card-front, .stats-card-back {
-        position: relative;
+        position: static;
+        display: block;
+        width: 100%;
         backface-visibility: visible;
-        transform: none;
+        transform: none !important;
         padding: 1rem;
+        height: auto;
     }
     
     .stats-card-front {
         padding-bottom: 0.5rem;
+        background-color: white;
     }
     
     .stats-card-back {
-        background-color: rgba(133, 17, 180, 0.1);
+        background-color: white;
+        border-top: 1px solid rgba(133, 17, 180, 0.1);
         color: var(--text-dark);
         text-align: center;
-        padding-top: 0.5rem;
+        padding-top: 0.75rem;
     }
     
     .stats-card-back p {
         color: var(--text-dark);
-        font-size: 0.9rem;
+        font-size: 1rem;
         font-weight: 500;
         margin: 0;
     }
