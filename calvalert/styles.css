@@ -507,7 +507,7 @@ h1 {
 }
 
 .logo-container:hover .calvalert-logo {
-    filter: drop-shadow(0 15px 40px rgba(133, 17, 180, 0.35));
+    /* filter: drop-shadow(0 15px 40px rgba(133, 17, 180, 0.35)); */
     animation: logoFloat 6s ease-in-out infinite;
 }
 
@@ -3209,7 +3209,7 @@ h1 {
 
 .company-logo:hover img {
     transform: translateY(-5px);
-    filter: drop-shadow(0 8px 20px rgba(133, 17, 180, 0.3));
+    /* filter: drop-shadow(0 8px 20px rgba(133, 17, 180, 0.3)); */
 }
 
 .company-intro h3 {
@@ -4608,7 +4608,7 @@ h1 {
 
 .footer-logo:hover img {
     transform: translateY(-5px);
-    filter: drop-shadow(0 2px 5px rgba(133, 17, 180, 0.1));
+    /* filter: drop-shadow(0 2px 5px rgba(133, 17, 180, 0.1)); */
 }
 
 .footer-links ul {
