@@ -868,6 +868,36 @@ h1 {
     }
 }
 
+@media (max-width: 768px) {
+    /* System Interactive Animation Mobile Layout */
+    .system-interactive {
+        flex-direction: column-reverse !important; /* Reverse order: modules first, then replay button */
+    }
+    
+    .steps-column {
+        width: 100% !important;
+        order: 2; /* Push to the bottom */
+        padding-top: 1.5rem !important;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
+    }
+    
+    .step-item {
+        display: none !important; /* Forcefully hide all step items */
+    }
+    
+    .replay-button {
+        margin: 0 !important; /* Remove margin */
+        display: block !important; /* Ensure visibility */
+    }
+    
+    .visual-column {
+        width: 100% !important;
+        order: 1; /* Show at the top */
+    }
+}
+
 .stat-number-large {
     font-size: 5rem;
     font-weight: 800;
