@@ -4327,10 +4327,12 @@ h1 {
 }
 
 /* Footer */
+/* Footer */
 .site-footer {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
+    background-color: #f8f6fb; /* Same as hero background for consistency */
+    color: var(--text-dark);
     padding: 4rem 0 1.5rem;
+    border-top: 1px solid rgba(133, 17, 180, 0.1);
 }
 
 .footer-top {
@@ -4343,7 +4345,12 @@ h1 {
 }
 
 .footer-logo img {
-    height: 40px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover img {
+    transform: translateY(-5px);
 }
 
 .footer-links ul {
@@ -4353,14 +4360,15 @@ h1 {
 }
 
 .footer-links a {
-    color: var(--text-light);
-    opacity: 0.7;
-    transition: opacity var(--transition-fast) var(--easing);
+    color: var(--primary-dark);
+    font-weight: 500;
+    transition: all var(--transition-fast) var(--easing);
 }
 
 .footer-links a:hover {
-    opacity: 1;
-    color: var(--text-light);
+    color: var(--primary-color);
+    transform: translateY(-2px);
+    display: inline-block;
 }
 
 .footer-social {
@@ -4369,33 +4377,35 @@ h1 {
 }
 
 .social-icon {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(133, 17, 180, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-light);
+    color: var(--primary-color);
     transition: all var(--transition-fast) var(--easing);
+    box-shadow: 0 4px 10px rgba(133, 17, 180, 0.05);
 }
 
 .social-icon:hover {
     background-color: var(--primary-color);
     transform: translateY(-3px);
-    color: var(--text-light);
+    color: white;
+    box-shadow: 0 8px 15px rgba(133, 17, 180, 0.2);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: 1.5rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(133, 17, 180, 0.1);
 }
 
 .footer-bottom p {
     font-size: 0.9rem;
-    opacity: 0.5;
-    color: var(--text-light);
+    opacity: 0.8;
+    color: var(--text-muted);
     margin: 0;
 }
 
