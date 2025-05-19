@@ -5084,14 +5084,11 @@ h1 {
         flex-direction: row;
         width: 100%;
         margin-bottom: 1rem;
+        justify-content: center;
     }
     
     .phase-line {
-        width: auto;
-        height: 3px;
-        flex-grow: 1;
-        margin: 0 8px;
-        background: linear-gradient(to right, rgba(133, 17, 180, 0.3), rgba(133, 17, 180, 0.1));
+        display: none;
     }
     
     .phase-content {
