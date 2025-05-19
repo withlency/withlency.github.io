@@ -511,23 +511,7 @@ h1 {
     animation: logoFloat 6s ease-in-out infinite;
 }
 
-.logo-glow {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) scale(0.9);
-    width: 120%;
-    height: 120%;
-    background: radial-gradient(circle, rgba(133, 17, 180, 0.15) 0%, rgba(133, 17, 180, 0) 70%);
-    border-radius: 50%;
-    opacity: 0;
-    transition: all 0.8s var(--easing);
-}
 
-.logo-container:hover .logo-glow {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1.1);
-}
 
 .floating-elements {
     position: absolute;
