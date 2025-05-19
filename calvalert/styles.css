@@ -5453,22 +5453,4 @@ h1 {
     }
 }
 
-@media (max-width: 768px) {
-  .floating-elements {
-    display: none !important;
-  }
-}
 
-@media (max-width: 768px) {
-  /* Hero CalvAlert logo */
-  .logo-container img,
-  /* Header Lency logo */
-  .logo img,
-  /* Footer Lency logo */
-  .footer-logo img {
-    filter: none !important;
-    box-shadow: none !important;
-    transform: none !important;
-    image-rendering: crisp-edges; /* helps on some browsers */
-  }
-}
