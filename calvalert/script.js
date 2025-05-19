@@ -613,7 +613,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!mapElement) return;
         
         // Cyprus coordinates
-        const cyprusLocation = [35.1264, 33.4299];
+        const cyprusLocation = [35.0522, 33.1478];
         
         // Initialize map centered on Cyprus
         const map = L.map('pilot-map').setView(cyprusLocation, 6);
