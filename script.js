@@ -278,6 +278,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     function initFormValidation() {
+        const contactForm = document.getElementById('signup-form');
+        
         if (contactForm) {
             contactForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -289,9 +291,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 requiredInputs.forEach(input => {
                     if (!input.value.trim()) {
                         input.classList.add('error');
+                        input.parentElement.classList.add('error-container');
                         isValid = false;
                     } else {
                         input.classList.remove('error');
+                        input.parentElement.classList.remove('error-container');
                     }
                 });
                 
@@ -311,27 +315,38 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 
                 if (isValid) {
-                    // Here you would normally submit the form data
-                    // For demo purposes, we'll just show a success message
-                    
-                    const formContainer = contactForm.parentElement;
-                    formContainer.innerHTML = `
-                        <div class="success-message">
-                            <div class="success-icon">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                            <h3>Thank You!</h3>
-                            <p>We've received your request and will be in touch soon.</p>
-                        </div>
-                    `;
+                    // Simulated form submission
+                    const submitBtn = contactForm.querySelector('.submit-btn');
+                    if (submitBtn) {
+                        // Disable button and show loading state
+                        submitBtn.disabled = true;
+                        const originalText = submitBtn.querySelector('.btn-text').textContent;
+                        submitBtn.querySelector('.btn-text').textContent = 'Sending...';
+                        submitBtn.querySelector('.btn-icon i').className = 'fas fa-spinner fa-spin';
+                        
+                        // Simulate API call with timeout
+                        setTimeout(() => {
+                            const formContainer = contactForm.parentElement;
+                            formContainer.innerHTML = `
+                                <div class="success-message">
+                                    <div class="success-icon">
+                                        <i class="fas fa-check"></i>
+                                    </div>
+                                    <h3>Thank You!</h3>
+                                    <p>We've received your request and will be in touch soon with updates about CalvAlert.</p>
+                                </div>
+                            `;
+                        }, 1500);
+                    }
                 }
             });
             
             // Clear error state on input
-            const inputs = contactForm.querySelectorAll('input, textarea');
+            const inputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], textarea');
             inputs.forEach(input => {
                 input.addEventListener('input', () => {
                     input.classList.remove('error');
+                    input.parentElement.classList.remove('error-container');
                 });
             });
             
