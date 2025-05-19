@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lency CalvAlert - AI-powered calving detection system that saves lives and reduces costs for farmers">
+    <link rel="icon" href="assets/logos/lency favicon.svg" type="image/svg+xml">
+    <title>Lency x CalvAlert - Revolutionizing Livestock Monitoring</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css" />
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#hero" aria-label="Scroll to top">
+                    <img src="assets/logos/lency-logo.png" alt="Lency Logo">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#problem" class="nav-link">Problem</a></li>
+                <li><a href="#solution" class="nav-link">Solution</a></li>
+                <li><a href="#validation" class="nav-link">Validation</a></li>
+                <li><a href="#partnerships" class="nav-link">Partnerships</a></li>
+                <li><a href="#team" class="nav-link">Team</a></li>
+            </ul>
+            <div class="cta-button">
+                <a href="#signup" class="btn primary-btn">Sign Up</a>
+            </div>
+            <div class="mobile-menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-background">
+                <div class="gradient-overlay"></div>
+            </div>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="reveal-text">
+                        <span class="reveal-line">Transforming</span>
+                        <span class="reveal-line">Livestock Monitoring</span>
+                    </h1>
+                    
+                    <div class="tagline reveal-text">
+                        <span class="highlight">Save Lives. Save Costs.</span>
+                    </div>
+                    
+                    <div class="hero-stat">
+                        <div class="stat-line" data-value="57">0%</div>
+                        <p>of calves die within 24 hours if complications are not addressed on time. We are building <b>CalvAlert</b> to change that.</p>
+                    </div>
+                    
+                    <div class="cta-group">
+                        <a href="#signup" class="btn primary-btn">
+                            <span>Early Access</span>
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                        <a href="#solution" class="btn text-btn">
+                            <span>Learn More</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="hero-visual">
+                    <div class="logo-container">
+                        <img src="assets/logos/CalvAlert-by-Lency.svg" alt="CalvAlert by Lency" class="calvalert-logo">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="scroll-text">Scroll to discover</div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section id="problem" class="section-container">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>The Problem</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="problem-statement fade-in">
+                    <h3>Calving is critical – and too often, calves and cows suffer preventable losses</h3>
+                    <p>Manual monitoring is exhausting and ineffective, especially at night when most calvings occur.</p>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stats-card-wrapper">
+                        <div class="stats-card fade-in" data-stat="57%">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="57">0</span>
+                                        <span class="symbol">%</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>of calves die within 24 hours if calving complications are missed or not addressed on time</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-card fade-in" data-stat="576M">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="576">0</span>
+                                        <span class="symbol">M</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>lost annually in the EU from preventable calving complications</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="stats-card fade-in" data-stat="5×">
+                            <div class="stats-card-inner">
+                                <div class="stats-card-front">
+                                    <div class="stat-number-large">
+                                        <span class="counter" data-count="5">0</span>
+                                        <span class="symbol">×</span>
+                                    </div>
+                                </div>
+                                <div class="stats-card-back">
+                                    <p>increased risk of calf death if dystocia is not addressed quickly</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="current-approach-container fade-in">
+                    <div class="approach-header">
+                        <div class="approach-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <h3>Current Approaches: Exhausting & Ineffective</h3>
+                    </div>
+                    <div class="approach-content">
+                        <div class="approach-grid three-column">
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <p>Traditional methods require exhausting 24/7 manual monitoring with round-the-clock staffing, leading to farmer burnout</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-moon"></i>
+                                </div>
+                                <p>Nighttime monitoring is particularly challenging yet crucial, as most calvings occur during these hours</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-user-clock"></i>
+                                </div>
+                                <p>Manual monitoring diverts valuable labor resources from other essential farm operations, reducing overall productivity</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                </div>
+                                <p>Existing detection systems lack reliability and precision, often missing critical calving events or giving false alarms</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-microchip"></i>
+                                </div>
+                                <p>Sensor-based systems are physically invasive for animals, require a device per cow, and are prone to loss or damage</p>
+                            </div>
+                            <div class="approach-item">
+                                <div class="approach-item-icon">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <p>Other available solutions lock farmers into expensive proprietary ecosystems with high maintenance costs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="impact-dashboard fade-in">
+                    <div class="impact-header">
+                        <h3>Financial Impact</h3>
+                        <div class="impact-meter">
+                            <div class="impact-meter-bar"></div>
+                        </div>
+                    </div>
+                    <div class="impact-cards">
+                        <div class="impact-card-mini" data-impact="high">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-heartbeat"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Direct Losses</h4>
+                                <p>Calf mortality, reduced milk yield, and veterinary interventions</p>
+                            </div>
+                        </div>
+                        <div class="impact-card-mini" data-impact="medium">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Labor Costs</h4>
+                                <p>24/7 monitoring during calving season, especially overnight</p>
+                            </div>
+                        </div>
+                        <div class="impact-card-mini" data-impact="ongoing">
+                            <div class="impact-card-mini-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="impact-card-mini-content">
+                                <h4>Long-term Impact</h4>
+                                <p>Reduced herd productivity and resource efficiency</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="center-cta fade-in">
+                    <a href="#solution" class="btn primary-btn">
+                        <span>Learn How CalvAlert Can Help</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Solution Section -->
+        <section id="solution" class="section-container section-light">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>The Solution</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="solution-intro-container fade-in">
+                    <div class="solution-headline">
+                        <h3>Introducing CalvAlert</h3>
+                        <div class="solution-tagline">AI-Powered Calving Detection that Saves Lives & Reduces Costs</div>
+                    </div>
+                    <div class="solution-showcase">
+                        <div class="solution-visual">
+                            <div class="pulse-container">
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-circle">
+                                    <i class="fas fa-eye"></i>
+                                </div>
+                            </div>
+                            <div class="visual-connector"></div>
+                            <div class="pulse-container">
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-circle">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                            </div>
+                            <div class="visual-connector"></div>
+                            <div class="pulse-container">
+                                <div class="pulse-ring"></div>
+                                <div class="pulse-circle">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="solution-description">Our intelligent vision system eliminates exhausting night checks and invasive sensors by providing reliable 24/7 monitoring with real-time alerts when intervention is needed most.</p>
+                    </div>
+                </div>
+
+                <!-- Features & Advantages (Combined) -->
+                <div class="features-advantages-container fade-in">
+                    <div class="section-subheader">
+                        <h3>Key Features & Advantages</h3>
+                        <p>Our innovative solution combines powerful features with unique advantages</p>
+                    </div>
+                    
+                    <div class="benefits-showcase animated-grid">
+                        <!-- Row 1: Core Technology Advantages -->
+                        <div class="benefit-card" data-delay="0">
+                            <div class="benefit-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Non-Invasive Monitoring</h4>
+                                <p>AI vision replaces wearables; no animal contact or maintenance needed</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="100">
+                            <div class="benefit-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Full-Pen Coverage with One Camera</h4>
+                                <p>360° fisheye lens covers the entire pen with a single device</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="200">
+                            <div class="benefit-icon">
+                                <i class="fas fa-video"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Full 24/7 Monitoring</h4>
+                                <p>Continuous video coverage with infrared night vision</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <!-- Row 2: Alert & Intelligence Features -->
+                        <div class="benefit-card" data-delay="300">
+                            <div class="benefit-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Instant Edge-AI Alerts</h4>
+                                <p>Real-time notifications from on-device AI processing</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="400">
+                            <div class="benefit-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Customizable Smart Alerts</h4>
+                                <p>AI-driven predictions for timely interventions</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="500">
+                            <div class="benefit-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Smart Calving Insights</h4>
+                                <p>Track trends for proactive calf and cow health decisions</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <!-- Row 3: Business & Practical Benefits -->
+                        <div class="benefit-card" data-delay="600">
+                            <div class="benefit-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Fast ROI</h4>
+                                <p>Eliminates overnight labor costs and boosts efficiency</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="700">
+                            <div class="benefit-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Weatherproof Design</h4>
+                                <p>Built for harsh farm environments with durable components</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                        
+                        <div class="benefit-card" data-delay="800">
+                            <div class="benefit-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="benefit-content">
+                                <h4>Local Support</h4>
+                                <p>Backed by partners who understand farming needs</p>
+                            </div>
+                            <div class="card-bg-shape"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Animation Section (Standalone) -->
+                <div class="animation-section-header fade-in">
+                    <h3>See How CalvAlert Works</h3>
+                    <p>Our intelligent system monitors your herd 24/7 and sends alerts at critical moments</p>
+                </div>
+                
+                <div class="solution-visualization fade-in">
+                    <div class="system-interactive">
+                        <div class="steps-column">
+                            <div class="step-item" data-step="1">
+                                <div class="step-number">1</div>
+                                <div class="step-text">A fisheye camera captures the calving pen</div>
+                            </div>
+                            
+                            <div class="step-item" data-step="2">
+                                <div class="step-number">2</div>
+                                <div class="step-text">Video streams are processed locally</div>
+                            </div>
+                            
+                            <div class="step-item" data-step="3">
+                                <div class="step-number">3</div>
+                                <div class="step-text">Our AI analyzes for calving signs</div>
+                            </div>
+                            
+                            <div class="step-item" data-step="4">
+                                <div class="step-number">4</div>
+                                <div class="step-text">Alerts are sent when issues detected</div>
+                            </div>
+                            
+                            <button id="replayDemo" class="replay-button">
+                                <i class="fas fa-redo-alt"></i> Replay
+                            </button>
+                        </div>
+                        
+                        <div class="visual-column">
+                            <div class="workflow-module" data-module="camera">
+                                <div class="module-icon">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="module-text">CAMERA MONITORING</div>
+                            </div>
+                            
+                            <div class="workflow-module" data-module="data">
+                                <div class="module-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div class="module-text">VIDEO & DATA GATHERING</div>
+                            </div>
+                            
+                            <div class="workflow-module" data-module="ai">
+                                <div class="module-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <div class="module-text">AI MODEL</div>
+                            </div>
+                            
+                            <div class="workflow-module" data-module="detection">
+                                <div class="module-icon">
+                                    <i class="fas fa-bell"></i>
+                                </div>
+                                <div class="module-text">OUTCOME DETECTION</div>
+                            </div>
+                            
+                            <div class="feed-container">
+                                <div class="live-badge">LIVE</div>
+                                <div class="cow-monitor">
+                                    <div class="cow cow-1"></div>
+                                    <div class="cow cow-2"></div>
+                                    <div class="cow cow-3">
+                                        <div class="detection-dot"></div>
+                                    </div>
+                                </div>
+                                <div class="camera-controls">
+                                    <span class="camera-dot"></span>
+                                    <span class="camera-dot active"></span>
+                                    <span class="camera-dot"></span>
+                                    <span class="camera-dot"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="alert-notification">
+                                <div class="alert-header">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>URGENT: Calving Alert</span>
+                                </div>
+                                <div class="alert-body">
+                                    <div class="alert-row">
+                                        <div class="alert-label">Barn:</div>
+                                        <div class="alert-value">East Wing</div>
+                                    </div>
+                                    <div class="alert-row">
+                                        <div class="alert-label">Cow ID:</div>
+                                        <div class="alert-value">#45</div>
+                                    </div>
+                                    <div class="alert-row">
+                                        <div class="alert-label">Status:</div>
+                                        <div class="alert-value status-alert">Calving in Progress</div>
+                                    </div>
+                                    <div class="alert-row">
+                                        <div class="alert-label">Detected:</div>
+                                        <div class="alert-value current-time">--:--:-- --</div>
+                                    </div>
+                                    <div class="alert-message">
+                                        Immediate attention recommended. Please check on the animal promptly to ensure proper care.
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="alert-btn dismiss">Dismiss</button>
+                                    <button class="alert-btn acknowledge">Acknowledge</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="center-cta fade-in">
+                    <a href="#signup" class="btn primary-btn">
+                        <span>Learn more about our MVP</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Validation Section -->
+        <section id="validation" class="section-container">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Real-World Validation</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="validation-content">
+                <div class="pilot-progress-container fade-in">
+                    <h3 class="progress-title">Pilot Program Progress</h3>
+                    
+                    <div class="progress-timeline">
+                        <div class="progress-phase">
+                            <div class="phase-indicator">
+                                <div class="phase-dot completed"></div>
+                                <div class="phase-line"></div>
+                            </div>
+                            <div class="phase-content">
+                                <h4>10+ Farms Surveyed</h4>
+                                <p>Research confirms farmers need reliable, non-invasive calving monitoring that reduces labor while improving outcomes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-phase">
+                            <div class="phase-indicator">
+                                <div class="phase-dot completed"></div>
+                                <div class="phase-line"></div>
+                            </div>
+                            <div class="phase-content">
+                                <h4>Confirmed Market Demand</h4>
+                                <p>Multiple farms expressed strong interest in CalvAlert, validating the significant need for innovative livestock monitoring solutions.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-phase">
+                            <div class="phase-indicator">
+                                <div class="phase-dot active"></div>
+                                <div class="phase-line"></div>
+                            </div>
+                            <div class="phase-content">
+                                <h4>Pilot Testing Underway</h4>
+                                <p>First pilot active in Cyprus with additional installations scheduled in the Netherlands to test across diverse farming environments.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-phase">
+                            <div class="phase-indicator">
+                                <div class="phase-dot"></div>
+                            </div>
+                            <div class="phase-content">
+                                <h4>Moving Toward Full Deployment</h4>
+                                <p>Refining the system based on real-world feedback, enhancing hardware and software components before commercial deployment.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+                <div class="map-container fade-in">
+                    <h3>CalvAlert Pilot Locations</h3>
+                    <div id="pilot-map" class="interactive-map"></div>
+                </div>
+                
+                <div class="center-cta fade-in">
+                    <a href="#signup" class="btn primary-btn">
+                        <span>Join Our Pilot Program</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partnerships Section -->
+        <section id="partnerships" class="section-container section-light">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Partnerships & Funding</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <!-- Partnerships Showcase -->
+                <div class="partnerships-showcase fade-in">                    
+                    <div class="partnership-details">
+                        <!-- Incubator Card -->
+                        <div class="partnership-card active" data-card="incubator">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-status">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">Active Partnership</span>
+                                    </div>
+                                    <h3>UtrechtInc Incubator</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="partner-showcase">
+                                        <div class="partner-logo-3d">
+                                            <a href="https://utrechtinc.nl/" target="_blank" aria-label="Visit UtrechtInc">
+                                                <img src="assets/logos/utrechtinc.png" alt="UtrechtInc Logo">
+                                            </a>
+                                        </div>
+                                        <div class="partner-connection">
+                                            <div class="connection-dot"></div>
+                                            <div class="connection-line"></div>
+                                            <div class="connection-dot"></div>
+                                        </div>
+                                        <div class="partner-logo-3d lency">
+                                            <img src="assets/logos/lency-logo.png" alt="Lency Logo">
+                                        </div>
+                                    </div>
+                                    <div class="partner-benefits">
+                                        <div class="benefit-chip">
+                                            <i class="fas fa-user-tie"></i>
+                                            <span>Expert Mentorship</span>
+                                        </div>
+                                        <div class="benefit-chip">
+                                            <i class="fas fa-network-wired"></i>
+                                            <span>Industry Networking</span>
+                                        </div>
+                                        <div class="benefit-chip">
+                                            <i class="fas fa-rocket"></i>
+                                            <span>Startup Resources</span>
+                                        </div>
+                                        <div class="benefit-chip">
+                                            <i class="fas fa-lightbulb"></i>
+                                            <span>Innovation Support</span>
+                                        </div>
+                                    </div>
+                                    <p>We're proud to be part of the UtrechtInc incubator program, which provides invaluable resources, mentorship, and connections to help CalvAlert reach its full potential.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Grant Card -->
+                        <div class="partnership-card" data-card="grants">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-status">
+                                        <span class="status-indicator active"></span>
+                                        <span class="status-text">Secured</span>
+                                    </div>
+                                    <h3>Initial Grant Funding</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="funding-meter">
+                                        <div class="funding-progress">
+                                            <div class="funding-bar" style="width: 15%"></div>
+                                            <div class="funding-marker" style="left: 15%">
+                                                <div class="marker-label">Current</div>
+                                            </div>
+                                            <div class="funding-marker target" style="left: 60%">
+                                                <div class="marker-label">2025 Target</div>
+                                            </div>
+                                            <div class="funding-amount">€1,000</div>
+                                        </div>
+                                        <div class="funding-milestones">
+                                            <div class="milestone-mark" style="left: 15%">
+                                                <div class="milestone-icon">
+                                                    <img src="assets/logos/uu-playground.png" alt="UU Playground">
+                                                </div>
+                                                <div class="milestone-details">
+                                                    <h4>UU Playground Grant</h4>
+                                                    <p>Initial boost funding</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="grant-details-expanded">
+                                        <p>The UU Playground Grant has enabled us to accelerate the development of CalvAlert's core technology and begin our pilot testing program. This initial funding represents the first step in our journey to bring this revolutionary technology to farmers worldwide.</p>
+                                        <a href="https://www.uu.nl/en/organisation/playground" target="_blank" class="grant-link">
+                                            <span>Learn more about UU Playground</span>
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Future Funding Cards -->
+                        <div class="partnership-card future" data-card="seed">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-status">
+                                        <span class="status-indicator future"></span>
+                                        <span class="status-text">Coming Soon</span>
+                                    </div>
+                                    <h3>Seed Funding Round</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="future-funding">
+                                        <div class="future-icon">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                        <p>Our seed funding round will support expanded pilot deployments, team growth, and hardware production scaling.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="partnership-card future" data-card="series-a">
+                            <div class="card-glow"></div>
+                            <div class="card-content">
+                                <div class="card-header">
+                                    <div class="card-status">
+                                        <span class="status-indicator future"></span>
+                                        <span class="status-text">Future Vision</span>
+                                    </div>
+                                    <h3>Series A Expansion</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="future-funding">
+                                        <div class="future-icon">
+                                            <i class="fas fa-chart-line"></i>
+                                        </div>
+                                        <p>Series A funding will enable market expansion across Europe, advanced R&D, and full-scale production.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="partnership-navigation fade-in">
+                    <button class="nav-button active" data-target="incubator">
+                        <i class="fas fa-building"></i>
+                        <span>Incubator</span>
+                    </button>
+                    <button class="nav-button" data-target="grants">
+                        <i class="fas fa-hand-holding-usd"></i>
+                        <span>Initial Grants</span>
+                    </button>
+                    <button class="nav-button future-nav" data-target="seed">
+                        <i class="fas fa-seedling"></i>
+                        <span>Seed Round</span>
+                    </button>
+                    <button class="nav-button future-nav" data-target="series-a">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Series A</span>
+                    </button>
+                </div>
+                
+                <div class="center-cta fade-in">
+                    <a href="#signup" class="btn primary-btn">
+                        <span>Explore Collaboration Opportunities</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <!-- Collaboration Banner -->
+                <div class="collaboration-banner fade-in">
+                    <div class="banner-content">
+                        <div class="banner-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="banner-text">
+                            <h3>Interested in partnering for CalvAlert?</h3>
+                            <p>We're looking for strategic partners to help us revolutionize livestock monitoring.</p>
+                        </div>
+                        <a href="#signup" class="banner-btn">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section id="team" class="section-container">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Meet the Team</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="team-container fade-in">
+                    <!-- Company Info Column -->
+                    <div class="company-column">
+                        <div class="company-logo">
+                            <img src="assets/logos/lency-logo.svg" alt="Lency Logo">
+                        </div>
+                        
+                        <div class="company-intro">
+                            <h3>The Lency Team</h3>
+                            <p class="product-intro">CalvAlert is our first product in a series of innovative solutions designed to revolutionize agriculture with AI.</p>
+                            
+                            <div class="mission-accordion">
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Our Mission</h4>
+                                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Empowering Farms, Transforming Agriculture: Bringing Cutting-Edge AI to Every Field, Every Farm. Lency's mission is to democratize advanced agricultural technology by delivering <strong>affordable, AI-driven solutions</strong> that boost productivity, protect animal welfare, and promote sustainable farming.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Our Vision</h4>
+                                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <p>Redefining the Future of Farming: A World Where Every Farm Thrives with Smart, Sustainable Technology. Lency envisions a future where <strong>precision farming</strong> is the standard and AI-driven tools empower farmers to optimize resources, improve animal health, and make data-driven decisions.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="accordion-item">
+                                    <div class="accordion-header">
+                                        <h4>Our Values</h4>
+                                        <div class="accordion-icon"><i class="fas fa-chevron-down"></i></div>
+                                    </div>
+                                    <div class="accordion-content">
+                                        <ul class="values-list">
+                                            <li><strong>Purpose-Driven Innovation</strong> - Solving real challenges that farmers face every day</li>
+                                            <li><strong>Accessibility and Scalability</strong> - AI for all farms, not just the biggest</li>
+                                            <li><strong>Sustainability at the Core</strong> - Supporting eco-friendly farming practices</li>
+                                            <li><strong>Collaboration for Long-Term Impact</strong> - Building strong partnerships</li>
+                                            <li><strong>Relentless Improvement</strong> - Continuously refining our solutions</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Members Column -->
+                    <div class="team-column">
+                        <div class="team-hexagrid">
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 0ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/andreas-pattichis.png" alt="Andreas Pattichis">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Andreas Pattichis</h3>
+                                            <p>Team Lead</p>
+                                            <a href="https://www.linkedin.com/in/andreas-pattichis/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 100ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/kyriakos-kyriakou.png" alt="Kyriakos Kyriakou">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Kyriakos Kyriakou</h3>
+                                            <p>Tech Lead</p>
+                                            <a href="https://www.linkedin.com/in/kyriakos-kyriakou-2a4977207/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 200ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/nikolas-stavrou.png" alt="Nikolas Stavrou">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Nikolas Stavrou</h3>
+                                            <p>Research Scientist</p>
+                                            <a href="https://www.linkedin.com/in/nikolasstavrou/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 300ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/andreas-alexandrou.png" alt="Andreas Alexandrou">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Andreas Alexandrou</h3>
+                                            <p>Computer Vision Engineer</p>
+                                            <a href="https://www.linkedin.com/in/andreas-alexandrou-056528242/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 400ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/sotiris-zenios.png" alt="Sotiris Zenios">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Sotiris Zenios</h3>
+                                            <p>Data Scientist</p>
+                                            <a href="https://www.linkedin.com/in/sotiris-zenios-a7b22819a/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="hexa-container">
+                                <div class="hexagon-member fade-in" style="transition-delay: 500ms;">
+                                    <div class="hexagon-inner">
+                                        <div class="hexagon-front">
+                                            <img src="assets/team/christos-eleftheriou.png" alt="Christos Eleftheriou">
+                                        </div>
+                                        <div class="hexagon-back">
+                                            <h3>Christos Eleftheriou</h3>
+                                            <p>Software Engineer</p>
+                                            <a href="https://www.linkedin.com/in/christos-eleftheriou-35b56b347/" target="_blank" class="hex-social">
+                                                <i class="fab fa-linkedin-in"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Signup Section -->
+        <section id="signup" class="section-container">
+            <div class="container">
+                <div class="section-header fade-in">
+                    <h2>Stay in the Loop</h2>
+                    <div class="section-line"></div>
+                </div>
+                
+                <div class="signup-intro fade-in">
+                    <p>Be the first to know about CalvAlert's progress and launches</p>
+                </div>
+                
+                <div class="signup-container fade-in">
+                    <div class="notification-bell">
+                        <div class="bell-icon">
+                            <i class="fas fa-bell"></i>
+                        </div>
+                        <div class="notification-circles">
+                            <div class="notification-circle"></div>
+                            <div class="notification-circle"></div>
+                            <div class="notification-circle"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-container">
+                        <form id="signup-form" class="contact-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-user input-icon"></i>
+                                        <input type="text" id="name" name="name" required>
+                                        <span class="input-focus-border"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-envelope input-icon"></i>
+                                        <input type="email" id="email" name="email" required>
+                                        <span class="input-focus-border"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="organization">Organization (Optional)</label>
+                                    <div class="input-container">
+                                        <i class="fas fa-building input-icon"></i>
+                                        <input type="text" id="organization" name="organization">
+                                        <span class="input-focus-border"></span>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <p class="checkbox-label">I'm interested in: <span class="required-indicator">*</span></p>
+                                    <div class="interests-container">
+                                        <label class="interest-option">
+                                            <input type="checkbox" name="interest" value="learn-more">
+                                            <span class="interest-checkbox"><i class="fas fa-check"></i></span>
+                                            <span class="interest-text">Learn more about CalvAlert</span>
+                                        </label>
+
+                                        <label class="interest-option">
+                                            <input type="checkbox" name="interest" value="notify">
+                                            <span class="interest-checkbox"><i class="fas fa-check"></i></span>
+                                            <span class="interest-text">Being notified when the MVP is ready</span>
+                                        </label>
+                                        
+                                        <label class="interest-option">
+                                            <input type="checkbox" name="interest" value="pilot">
+                                            <span class="interest-checkbox"><i class="fas fa-check"></i></span>
+                                            <span class="interest-text">Joining the pilot program</span>
+                                        </label>
+                                        
+                                        <label class="interest-option">
+                                            <input type="checkbox" name="interest" value="collaborate">
+                                            <span class="interest-checkbox"><i class="fas fa-check"></i></span>
+                                            <span class="interest-text">Collaborating/Partnering with CalvAlert</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="message">Message (Optional)</label>
+                                    <div class="input-container textarea-container">
+                                        <i class="fas fa-comment input-icon"></i>
+                                        <textarea id="message" name="message" rows="4"></textarea>
+                                        <span class="input-focus-border"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn primary-btn submit-btn">
+                                <span class="btn-text">Stay Updated</span>
+                                <span class="btn-icon"><i class="fas fa-paper-plane"></i></span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="assets/logos/lency-logo.svg" alt="Lency Logo">
+                </div>
+                
+                <div class="footer-links">
+                    <ul>
+                        <li><a href="#problem">Problem</a></li>
+                        <li><a href="#solution">Solution</a></li>
+                        <li><a href="#validation">Validation</a></li>
+                        <li><a href="#team">Team</a></li>
+                        <li><a href="#partnerships">Partnerships & Funding</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/company/lency" target="_blank" class="social-icon">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:talk.lency@gmail.com" class="social-icon">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Lency. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"></script>
+</body>
+</html>
