@@ -685,4 +685,75 @@ document.addEventListener('DOMContentLoaded', () => {
             className: 'map-popup'
         });
     }
+
+    // Partnership Section Interactions
+    const journeyMilestones = document.querySelectorAll('.journey-milestone');
+    const partnershipCards = document.querySelectorAll('.partnership-card');
+    const navButtons = document.querySelectorAll('.nav-button');
+
+    // Function to activate a partnership card
+    function activatePartnershipCard(cardId) {
+        // Hide all cards
+        partnershipCards.forEach(card => {
+            card.classList.remove('active');
+        });
+        
+        // Show the selected card
+        const selectedCard = document.querySelector(`.partnership-card[data-card="${cardId}"]`);
+        if (selectedCard) {
+            selectedCard.classList.add('active');
+        }
+        
+        // Update milestone active states
+        journeyMilestones.forEach(milestone => {
+            if (milestone.getAttribute('data-milestone') === cardId) {
+                milestone.classList.add('active');
+            } else {
+                milestone.classList.remove('active');
+            }
+        });
+        
+        // Update navigation active states
+        navButtons.forEach(button => {
+            if (button.getAttribute('data-target') === cardId) {
+                button.classList.add('active');
+            } else {
+                button.classList.remove('active');
+            }
+        });
+    }
+
+    // Add click events to milestones
+    journeyMilestones.forEach(milestone => {
+        milestone.addEventListener('click', () => {
+            const cardId = milestone.getAttribute('data-milestone');
+            activatePartnershipCard(cardId);
+        });
+    });
+
+    // Add click events to navigation buttons
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const cardId = button.getAttribute('data-target');
+            activatePartnershipCard(cardId);
+        });
+    });
+
+    // Animate funding bar on scroll
+    const fundingBar = document.querySelector('.funding-bar');
+    if (fundingBar) {
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // Ensure the width is set after the element is visible
+                    setTimeout(() => {
+                        fundingBar.style.width = fundingBar.style.width || '15%';
+                    }, 300);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        observer.observe(fundingBar);
+    }
 });

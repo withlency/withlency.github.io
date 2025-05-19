@@ -3078,97 +3078,719 @@ h1 {
 }
 
 /* Partnerships Section */
-.partnership-intro {
-    text-align: center;
+.partnerships-showcase {
+    position: relative;
     margin-bottom: 3rem;
+    overflow: hidden;
 }
 
-.subsection {
-    margin-bottom: 5rem;
+.partnership-journey {
+    position: relative;
+    margin: 2rem 0 4rem;
 }
 
-.subsection:last-child {
-    margin-bottom: 3rem;
+.journey-path {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.subsection-header {
-    text-align: center;
+.journey-line {
+    position: absolute;
+    top: 25px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light) 50%, rgba(133, 17, 180, 0.2));
+    z-index: 1;
+}
+
+.journey-milestone {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.journey-milestone:hover {
+    transform: translateY(-5px);
+}
+
+.milestone-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: white;
+    border: 3px solid var(--primary-color);
+    margin-bottom: 10px;
+    transition: all 0.3s ease;
+}
+
+.journey-milestone.active .milestone-dot {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(133, 17, 180, 0.3);
+    transform: scale(1.2);
+}
+
+.journey-milestone.future .milestone-dot {
+    background-color: rgba(133, 17, 180, 0.1);
+    border-color: rgba(133, 17, 180, 0.3);
+}
+
+.milestone-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    white-space: nowrap;
+    transition: color 0.3s ease;
+}
+
+.journey-milestone.active .milestone-label {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.journey-milestone.future .milestone-label {
+    color: var(--text-muted);
+}
+
+.partnership-details {
+    position: relative;
+    overflow: hidden;
+    min-height: 500px;
+}
+
+.partnership-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease;
+    visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.partnership-card.active {
+    position: relative;
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    z-index: 3;
+}
+
+.card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(133, 17, 180, 0.15), transparent 70%);
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.partnership-card.active .card-glow {
+    opacity: 1;
+    animation: glowPulse 4s infinite alternate;
+}
+
+@keyframes glowPulse {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+.card-content {
+    position: relative;
+    z-index: 2;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transform: perspective(1200px) rotateX(0deg);
+    transition: all 0.5s ease;
+}
+
+.partnership-card:hover .card-content {
+    transform: perspective(1200px) rotateX(2deg);
+    box-shadow: 0 20px 60px rgba(133, 17, 180, 0.15);
+}
+
+.card-header {
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, rgba(133, 17, 180, 0.1), rgba(133, 17, 180, 0.05));
+    border-bottom: 1px solid rgba(133, 17, 180, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+    animation: pulse 1.5s infinite;
+}
+
+.status-indicator.future {
+    background-color: #9e9e9e;
+    box-shadow: 0 0 0 3px rgba(158, 158, 158, 0.2);
+    animation: none;
+}
+
+.status-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.card-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.card-body {
+    padding: 2rem;
+}
+
+.partner-showcase {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-bottom: 2rem;
-    position: relative;
 }
 
-.subsection-header h3 {
-    display: inline-block;
-    padding-bottom: 0.75rem;
-    position: relative;
+.partner-logo-3d {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.5s ease;
+    padding: 1.5rem;
 }
 
-.subsection-header h3::after {
+.partner-logo-3d:hover {
+    transform: perspective(800px) rotateY(15deg);
+    box-shadow: -10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.partner-logo-3d.lency:hover {
+    transform: perspective(800px) rotateY(-15deg);
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.partner-logo-3d img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.partner-connection {
+    display: flex;
+    align-items: center;
+    width: 180px;
+    padding: 0 1rem;
+}
+
+.connection-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+.connection-line {
+    flex-grow: 1;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    position: relative;
+    overflow: hidden;
+}
+
+.connection-line::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    animation: flowLight 2s infinite linear;
+}
+
+@keyframes flowLight {
+    0% { left: -100%; }
+    100% { left: 100%; }
+}
+
+.partner-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.benefit-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    background-color: rgba(133, 17, 180, 0.05);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.benefit-chip:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.funding-meter {
+    position: relative;
+    margin: 3rem 0;
+}
+
+.funding-progress {
+    height: 40px;
+    background-color: rgba(133, 17, 180, 0.05);
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+}
+
+.funding-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 100px;
+    transition: width 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+}
+
+.funding-amount {
+    position: absolute;
+    top: 50%;
+    left: 7.5%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 100px;
+    padding: 0.25rem 1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    white-space: nowrap;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+}
+
+.funding-marker {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 2px;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.funding-marker.target {
+    background-color: #4caf50;
+}
+
+.marker-label {
+    position: absolute;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
-    width: 50px;
-    height: 3px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
 }
 
-.partner-logo-container {
+.funding-marker.target .marker-label {
+    color: #4caf50;
+}
+
+.funding-milestones {
+    position: relative;
+    height: 90px;
+    margin-top: 2rem;
+}
+
+.milestone-mark {
+    position: absolute;
+    top: 0;
+    transform: translateX(-50%);
     display: flex;
-    justify-content: center;
-    margin: 2rem 0;
-}
-
-.partner-logo {
-    max-width: 240px;
-    height: auto;
-    transition: transform var(--transition-normal) var(--easing),
-                filter var(--transition-normal) var(--easing);
-}
-
-.partner-logo:hover {
-    transform: scale(1.05);
-    filter: brightness(1.1);
-}
-
-.benefits-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.benefit-card {
-    background-color: var(--card-bg);
-    border-radius: 1rem;
-    padding: 2.5rem;
-    box-shadow: var(--shadow-md);
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-    transition: transform var(--transition-normal) var(--easing),
-                box-shadow var(--transition-normal) var(--easing);
 }
 
-.benefit-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-lg);
+.milestone-icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    padding: 0.8rem;
+    margin-bottom: 0.75rem;
+    transition: all 0.3s ease;
 }
 
-.benefit-icon {
-    width: 70px;
-    height: 70px;
-    background-color: rgba(133, 17, 180, 0.1);
+.milestone-mark:hover .milestone-icon {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(133, 17, 180, 0.2);
+}
+
+.milestone-icon img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.milestone-details {
+    max-width: 150px;
+}
+
+.milestone-details h4 {
+    margin: 0 0 0.25rem;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+
+.milestone-details p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.grant-details-expanded {
+    margin-top: 2rem;
+}
+
+.grant-details-expanded p {
+    margin-bottom: 1.5rem;
+}
+
+.grant-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background-color: rgba(133, 17, 180, 0.05);
+    border-radius: 100px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.grant-link:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(133, 17, 180, 0.2);
+}
+
+.future-funding {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+.future-icon {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(133, 17, 180, 0.05);
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 1.5rem;
+    font-size: 2.5rem;
+    color: rgba(133, 17, 180, 0.4);
+    margin-bottom: 1.5rem;
 }
 
-.benefit-icon i {
-    font-size: 28px;
+.partnership-navigation {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem;
+    background: none;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.nav-button i {
+    font-size: 1.5rem;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.nav-button span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(133, 17, 180, 0.05);
+}
+
+.nav-button:hover i,
+.nav-button:hover span {
     color: var(--primary-color);
+}
+
+.nav-button.active {
+    background-color: rgba(133, 17, 180, 0.1);
+}
+
+.nav-button.active i,
+.nav-button.active span {
+    color: var(--primary-color);
+}
+
+.nav-button.future-nav i,
+.nav-button.future-nav span {
+    color: var(--text-muted);
+    opacity: 0.6;
+}
+
+.collaboration-banner {
+    margin-top: 4rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.collaboration-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgzMCkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+    opacity: 0.2;
+}
+
+.banner-content {
+    padding: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.banner-icon {
+    width: 80px;
+    height: 80px;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.banner-text {
+    flex-grow: 1;
+}
+
+.banner-text h3 {
+    margin: 0 0 0.5rem;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.banner-text p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1rem;
+}
+
+.banner-btn {
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.banner-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: var(--primary-dark);
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 992px) {
+    .banner-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+    
+    .milestone-label {
+        font-size: 0.8rem;
+    }
+    
+    .partner-connection {
+        width: 100px;
+    }
+    
+    .partnership-navigation {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .journey-path {
+        flex-direction: column;
+        gap: 2.5rem;
+        padding: 0;
+    }
+    
+    .journey-line {
+        width: 4px;
+        height: 100%;
+        top: 0;
+        left: 24px;
+        transform: translateX(-50%);
+    }
+    
+    .journey-milestone {
+        flex-direction: row;
+        width: 100%;
+        gap: 1.5rem;
+        justify-content: flex-start;
+    }
+    
+    .milestone-dot {
+        margin-bottom: 0;
+    }
+    
+    .partner-showcase {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .partner-connection {
+        width: 60px;
+        transform: rotate(90deg);
+        margin: 1rem 0;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: flex-start;
+        padding: 1.25rem;
+    }
+    
+    .funding-milestones {
+        height: auto;
+        display: flex;
+        justify-content: center;
+    }
+    
+    .milestone-mark {
+        position: relative;
+        transform: none;
+        left: auto !important;
+    }
+    
+    .milestone-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .milestone-details {
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .partnership-navigation {
+        gap: 0.5rem;
+    }
+    
+    .nav-button {
+        padding: 0.75rem;
+        min-width: 80px;
+    }
+    
+    .banner-content {
+        padding: 1.5rem;
+    }
+    
+    .banner-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    .funding-amount {
+        left: 15%;
+        padding: 0.15rem 0.75rem;
+        font-size: 0.9rem;
+    }
 }
 
 /* Signup Section */
