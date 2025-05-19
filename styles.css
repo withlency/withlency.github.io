@@ -4019,42 +4019,28 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    .journey-path {
-        flex-direction: column;
-        gap: 2.5rem;
-        padding: 0;
-    }
-    
-    .journey-line {
-        width: 4px;
-        height: 100%;
-        top: 0;
-        left: 24px;
-        transform: translateX(-50%);
-    }
-    
-    .journey-milestone {
-        flex-direction: row;
-        width: 100%;
-        gap: 1.5rem;
-        justify-content: flex-start;
-    }
-    
-    .milestone-dot {
-        margin-bottom: 0;
-    }
-    
     .partner-showcase {
         flex-direction: column;
         gap: 1.5rem;
     }
     
     .partner-connection {
-        width: 60px;
-        transform: rotate(90deg);
-        margin: 1rem 0;
+        display: none; /* Hide the connection dots on mobile */
     }
     
+    .partner-logo-3d.lency {
+        display: none; /* Hide the Lency logo on mobile */
+    }
+    
+    .partner-benefits {
+        display: none; /* Hide the benefit tags on mobile */
+    }
+    
+    .partner-logo-3d {
+        margin: 0 auto; /* Center the remaining UtrechtInc logo */
+    }
+
+    /* Keep existing styles below */
     .card-header {
         flex-direction: column;
         gap: 0.75rem;
@@ -4081,6 +4067,81 @@ h1 {
     
     .milestone-details {
         max-width: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Complete overhaul of funding display for mobile */
+    .funding-meter {
+        margin: 2rem 0;
+        position: relative;
+    }
+    
+    .funding-progress {
+        height: 40px;
+        position: relative;
+        background-color: rgba(133, 17, 180, 0.05);
+        border-radius: 20px;
+        overflow: visible;
+    }
+    
+    .funding-amount {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: auto;
+        height: auto;
+        top: -15px;
+        left: 15% !important;
+        transform: none;
+        padding: 0.5rem 1rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background-color: #8511b4;
+        color: white;
+        border: none;
+        border-radius: 20px;
+        z-index: 10;
+        box-shadow: 0 4px 15px rgba(133, 17, 180, 0.3);
+        min-width: 80px;
+        text-align: center;
+    }
+    
+    .funding-bar {
+        height: 100%;
+        border-radius: 20px;
+        min-width: 80px; /* Ensure a minimum width */
+    }
+    
+    .funding-marker {
+        display: none; /* Hide markers on mobile */
+    }
+    
+    .funding-milestones {
+        margin-top: 2.5rem; /* More space for milestones */
+    }
+    
+    /* Make milestone icon more prominent */
+    .milestone-icon {
+        width: 60px;
+        height: 60px;
+        border: none;
+        box-shadow: 0 5px 15px rgba(133, 17, 180, 0.2);
+    }
+    
+    .milestone-details h4 {
+        font-size: 1rem;
+    }
+    
+    /* Remove all marker labels to simplify */
+    .marker-label {
+        display: none;
+    }
+    
+    /* Fix for the grant details expanded */
+    .grant-details-expanded {
+        margin-top: 3rem;
     }
 }
 
