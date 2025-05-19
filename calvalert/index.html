@@ -984,11 +984,20 @@
                     
                     <div class="form-container">
                         <form id="signup-form" class="contact-form" action="https://formsubmit.co/info@withlency.com" method="POST">
-                            <!-- Add these hidden fields right after the form opening tag -->
+                            <!-- Anti-spam honeypot field -->
                             <input type="text" name="_honey" style="display:none">
+                            
+                            <!-- Disable captcha -->
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="https://withlency.com/calvalert/">
+                            
+                            <!-- Redirect after submission -->
+                            <input type="hidden" name="_next" value="https://withlency.com/calvalert/thanks.html">
+                            
+                            <!-- Custom subject line -->
                             <input type="hidden" name="_subject" value="New CalvAlert Inquiry">
+                            
+                            <!-- Disable FormSubmit credit -->
+                            <input type="hidden" name="_template" value="box">
                             <div class="form-grid">
                                 <div class="form-group">
                                     <label for="name">Name</label>

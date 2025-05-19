@@ -317,28 +317,13 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             
             if (isValid) {
-                // Prepare selected interests to be sent as a single field
-                const selectedInterests = Array.from(checkboxes)
-                    .filter(checkbox => checkbox.checked)
-                    .map(checkbox => checkbox.value)
-                    .join(', ');
-                    
-                // Add a hidden field with combined interests
-                const interestsField = document.createElement('input');
-                interestsField.type = 'hidden';
-                interestsField.name = 'Selected Interests';
-                interestsField.value = selectedInterests;
-                contactForm.appendChild(interestsField);
-                
-                // Show loading state
+                // Show loading state - the form will submit naturally
                 const submitBtn = contactForm.querySelector('.submit-btn');
                 if (submitBtn) {
                     submitBtn.disabled = true;
                     submitBtn.querySelector('.btn-text').textContent = 'Sending...';
                     submitBtn.querySelector('.btn-icon i').className = 'fas fa-spinner fa-spin';
                 }
-                
-                // Form will submit normally to formsubmit.co
             }
         });
             
