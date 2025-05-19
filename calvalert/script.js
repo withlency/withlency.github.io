@@ -31,51 +31,23 @@ document.addEventListener('DOMContentLoaded', () => {
     body.appendChild(overlay);
     
     // Function definitions - defined BEFORE they're called in initialization
-    function initCursor() {
-        // Only initialize custom cursor on non-touch devices
-        if (!isTouchDevice()) {
-            document.addEventListener('mousemove', (e) => {
-                cursor.style.left = `${e.clientX}px`;
-                cursor.style.top = `${e.clientY}px`;
-                
-                // Add some delay to follower for smooth effect
-                setTimeout(() => {
-                    cursorFollower.style.left = `${e.clientX}px`;
-                    cursorFollower.style.top = `${e.clientY}px`;
-                }, 70);
-            });
-            
-            // Add hover effect to interactive elements
-            interactiveElements.forEach(element => {
-                element.addEventListener('mouseenter', () => {
-                    cursor.classList.add('hover');
-                    cursorFollower.classList.add('hover');
-                });
-                
-                element.addEventListener('mouseleave', () => {
-                    cursor.classList.remove('hover');
-                    cursorFollower.classList.remove('hover');
-                });
-            });
-            
-            // Hide cursor when leaving window
-            document.addEventListener('mouseout', (e) => {
-                if (e.relatedTarget === null) {
-                    cursor.style.opacity = '0';
-                    cursorFollower.style.opacity = '0';
-                }
-            });
-            
-            document.addEventListener('mouseover', () => {
-                cursor.style.opacity = '1';
-                cursorFollower.style.opacity = '1';
-            });
-        } else {
-            // Hide cursor elements on touch devices
-            cursor.style.display = 'none';
-            cursorFollower.style.display = 'none';
-            body.style.cursor = 'auto';
-        }
+        function initCursor() {
+        // Disable custom cursor completely
+        const cursor = document.querySelector('.cursor');
+        const cursorFollower = document.querySelector('.cursor-follower');
+        
+        // Hide cursor elements if they exist
+        if (cursor) cursor.style.display = 'none';
+        if (cursorFollower) cursorFollower.style.display = 'none';
+        
+        // Ensure body has regular cursor
+        document.body.style.cursor = 'auto';
+        
+        // Remove cursor:none from any elements that might have it
+        const elementsWithNoCursor = document.querySelectorAll('[style*="cursor: none"]');
+        elementsWithNoCursor.forEach(el => {
+            el.style.cursor = 'auto';
+        });
     }
     
     function initScrollEvents() {
