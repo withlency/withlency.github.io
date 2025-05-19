@@ -387,6 +387,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 logoContainer.style.transform = 'translateY(0) rotateY(0) rotateX(0)';
             });
         }
+
+        if (isTouchDevice()) {
+            // Force remove any transforms from logo elements on touch devices
+            const logoElements = document.querySelectorAll('.logo-container, .logo img, .calvalert-logo');
+            logoElements.forEach(el => {
+                if (el) el.style.transform = 'none';
+            });
+        }
     }
     
     // Utility functions
