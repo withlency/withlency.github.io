@@ -5334,3 +5334,50 @@ h1 {
     }
 }
 
+@media (min-width: 769px) and (max-width: 991px) {
+    /* Eliminate all margins between stat cards */
+    .stats-card-wrapper {
+        flex-direction: column;
+        gap: 0;
+        margin-bottom: 0;
+    }
+    
+    .stats-card {
+        width: 100%;
+        margin-bottom: 1.5rem;
+        height: auto;
+    }
+    
+    /* Force card inner to maintain proper sizing */
+    .stats-card-inner {
+        height: 100%;
+        min-height: 200px;
+        margin-bottom: 0;
+    }
+    
+    /* Remove any top margins that might be causing spacing */
+    .stats-container {
+        margin-top: 0;
+    }
+    
+    /* Ensure cards have proper width */
+    .stats-card-front, .stats-card-back {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .stats-card-wrapper {
+        gap: 0;
+        margin-bottom: 0;
+    }
+    
+    .stats-card {
+        margin-bottom: 1.5rem;
+        height: auto;
+    }
+    
+    .stats-card:last-child {
+        margin-bottom: 0;
+    }
+}
