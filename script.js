@@ -757,3 +757,29 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(fundingBar);
     }
 });
+
+// Team Section Accordion
+document.addEventListener('DOMContentLoaded', function() {
+    const accordionItems = document.querySelectorAll('.accordion-item');
+    
+    // Initialize first item as active
+    if (accordionItems.length > 0) {
+        accordionItems[0].classList.add('active');
+    }
+    
+    accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        
+        header.addEventListener('click', () => {
+            // Close all items
+            accordionItems.forEach(accItem => {
+                if (accItem !== item) {
+                    accItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
+        });
+    });
+});
