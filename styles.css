@@ -898,6 +898,46 @@ h1 {
     }
 }
 
+@media (max-width: 768px) {
+    /* Hide the pulse visualization on mobile */
+    .solution-showcase .solution-visual {
+        display: none;
+    }
+    
+    /* Adjust spacing for the description without the visualization */
+    .solution-description {
+        margin-top: 0;
+        font-size: 1rem;
+    }
+    
+    /* Make benefit cards more compact */
+    .benefit-card {
+        padding: 1rem; /* Reduced padding */
+        margin-bottom: 0.5rem;
+    }
+    
+    .benefit-icon {
+        width: 2.5rem; /* Smaller icon */
+        height: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .benefit-content h4 {
+        font-size: 0.9rem; /* Smaller heading */
+        margin-bottom: 0.25rem;
+    }
+    
+    .benefit-content p {
+        font-size: 0.8rem; /* Smaller text */
+        line-height: 1.4;
+    }
+    
+    /* Make the benefits grid more compact */
+    .benefits-showcase {
+        gap: 0.75rem; /* Smaller gap between cards */
+    }
+}
+
 .stat-number-large {
     font-size: 5rem;
     font-weight: 800;
