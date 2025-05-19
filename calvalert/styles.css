@@ -1193,7 +1193,7 @@ h1 {
         height: auto;
         max-height: 200px;
     }
-    
+
     .hero-background {
         height: 100%;
         background-size: cover;
@@ -2025,6 +2025,31 @@ h1 {
 
 .solution-side {
     background-color: rgba(133, 17, 180, 0.03);
+}
+
+@media (max-width: 768px) {
+    /* Remove all filters from logos on mobile */
+    .calvalert-logo, .logo img {
+        filter: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Ensure animations are completely disabled */
+    .calvalert-logo, .logo-container, .logo img {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+    }
+    
+    /* Reset any transform styles that might be applied by JS */
+    .logo-container {
+        transform: none !important;
+    }
+    
+    /* Make sure glow effects are disabled */
+    .logo-glow {
+        display: none !important;
+    }
 }
 
 .side-label {
