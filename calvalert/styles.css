@@ -246,14 +246,14 @@ nav {
 }
 
 .logo img {
-    height: 90px;
+    height: 110px;
     transition: all 0.4s var(--easing);
     position: relative;
     margin-top: 8px;
 }
 
 header.scrolled .logo img {
-    height: 80px;
+    height: 100px;
 }
 
 .nav-links {
@@ -3282,11 +3282,12 @@ h1 {
 .values-list {
     padding-left: 1.5rem;
     margin: 0;
+    text-align: left;
 }
 
 .values-list li {
     margin-bottom: 0.75rem;
-    color: var(--text-dark);
+    color: var(--text-muted);
 }
 
 .values-list li:last-child {
