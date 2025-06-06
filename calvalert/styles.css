@@ -5455,3 +5455,40 @@ h1 {
 }
 
 
+@media (max-width: 768px) {
+    /* Fix blurry logo rendering on mobile */
+    .footer-logo img,
+    .logo img,
+    .company-logo img {
+        filter: none !important;
+        transform: none !important;
+        transition: none !important;
+        animation: none !important;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Specifically target footer logo */
+    .footer-logo {
+        transform: none !important;
+    }
+    
+    .footer-logo:hover img {
+        transform: none !important;
+        filter: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-logo img {
+        width: auto !important;
+        height: 80px !important; /* Reduce size slightly */
+        transform: none !important;
+        filter: none !important;
+        will-change: auto !important;
+    }
+}
