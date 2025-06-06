@@ -4585,7 +4585,6 @@ h1 {
 }
 
 /* Footer */
-/* Footer */
 .site-footer {
     background-color: #f8f6fb; /* Same as hero background for consistency */
     color: var(--text-dark);
@@ -4604,12 +4603,6 @@ h1 {
 
 .footer-logo img {
     height: 100px;
-    transition: transform 0.3s ease;
-}
-
-.footer-logo:hover img {
-    transform: translateY(-5px);
-    /* filter: drop-shadow(0 2px 5px rgba(133, 17, 180, 0.1)); */
 }
 
 .footer-links ul {
@@ -4621,7 +4614,6 @@ h1 {
 .footer-links a {
     color: var(--primary-dark);
     font-weight: 500;
-    transition: all var(--transition-fast) var(--easing);
 }
 
 .footer-links a:hover {
