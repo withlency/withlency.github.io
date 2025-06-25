@@ -4111,6 +4111,14 @@ h1 {
         margin: 2rem 0;
         position: relative;
     }
+
+    .hero-stat {
+        text-align: left;
+    }
+    
+    .hero-stat p {
+        text-align: left;
+    }
     
     .funding-progress {
         height: 40px;
@@ -4769,6 +4777,14 @@ h1 {
 
     .hero-content {
         max-width: 100%;
+    }
+
+    .hero-stat {
+        text-align: left;
+    }
+    
+    .hero-stat p {
+        text-align: left;
     }
 
     .logo-container {
