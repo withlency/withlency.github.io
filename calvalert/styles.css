@@ -5237,6 +5237,17 @@ h1 {
     }
 }
 
+/* Connection line animation */
+.pilot-connection {
+    animation: dashAnimation 20s linear infinite;
+}
+
+@keyframes dashAnimation {
+    to {
+        stroke-dashoffset: -100;
+    }
+}
+
 .future-dot {
     width: 12px;
     height: 12px;
@@ -5271,6 +5282,11 @@ h1 {
 .popup-content p {
     margin: 0;
     font-size: 0.9rem;
+}
+
+.popup-content p strong {
+    color: var(--text-dark);
+    font-weight: 600;
 }
 
 /* Grant Section */

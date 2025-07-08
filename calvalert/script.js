@@ -612,18 +612,23 @@ document.addEventListener('DOMContentLoaded', () => {
         
         if (!mapElement) return;
         
-        // Cyprus coordinates
+        // Cyprus and Netherlands coordinates
         const cyprusLocation = [35.0522, 33.1478];
+        const netherlandsLocation = [52.1326, 5.2913];
         
-        // Initialize map centered on Cyprus
-        const map = L.map('pilot-map').setView(cyprusLocation, 6);
+        // Calculate center point between both locations for better view
+        const centerLat = (cyprusLocation[0] + netherlandsLocation[0]) / 2;
+        const centerLng = (cyprusLocation[1] + netherlandsLocation[1]) / 2;
+        
+        // Initialize map centered between both locations
+        const map = L.map('pilot-map').setView([centerLat, centerLng], 5);
         
         // Add OpenStreetMap tiles
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
         
-        // Create a custom pulsing dot icon
+        // Create a custom pulsing dot icon for active sites
         const pulsingDotIcon = L.divIcon({
             className: 'pulsing-dot-icon',
             html: '<div class="pulsing-dot"></div>',
@@ -637,41 +642,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }).addTo(map);
         
         // Add popup for Cyprus marker
-        const popupContent = `
+        const cyprusPopupContent = `
             <div class="popup-content">
                 <h4>Active Pilot Site</h4>
-                <p>Cyprus - Testing since January 2025</p>
+                <p><strong>Cyprus</strong></p>
+                <p>Testing since January 2025</p>
             </div>
         `;
         
-        cyprusMarker.bindPopup(popupContent, {
+        cyprusMarker.bindPopup(cyprusPopupContent, {
             className: 'map-popup'
-        }).openPopup();
-        
-        // Add marker for Netherlands (future site)
-        const netherlandsLocation = [52.1326, 5.2913];
-        
-        const futureIcon = L.divIcon({
-            className: 'future-location-icon',
-            html: '<div class="future-dot"></div>',
-            iconSize: [12, 12],
-            iconAnchor: [6, 6]
         });
         
+        // Add marker for Netherlands (now also active)
         const netherlandsMarker = L.marker(netherlandsLocation, {
-            icon: futureIcon
+            icon: pulsingDotIcon
         }).addTo(map);
         
-        const futurePopupContent = `
+        const netherlandsPopupContent = `
             <div class="popup-content">
-                <h4>Upcoming Pilot Site</h4>
-                <p>Netherlands - Scheduled for Q3 2025</p>
+                <h4>Active Pilot Site</h4>
+                <p><strong>Netherlands</strong></p>
+                <p>Camera installed - Testing in progress</p>
             </div>
         `;
         
-        netherlandsMarker.bindPopup(futurePopupContent, {
+        netherlandsMarker.bindPopup(netherlandsPopupContent, {
             className: 'map-popup'
         });
+        
+        // Fit the map to show both markers with some padding
+        const bounds = L.latLngBounds([cyprusLocation, netherlandsLocation]);
+        map.fitBounds(bounds, { padding: [50, 50] });
+        
+        // Add a polyline connecting the two sites for visual effect
+        const connectionLine = L.polyline([cyprusLocation, netherlandsLocation], {
+            color: 'rgba(133, 17, 180, 0.3)',
+            weight: 2,
+            opacity: 0.6,
+            dashArray: '10, 10',
+            className: 'pilot-connection'
+        }).addTo(map);
     }
 
     // Partnership Section Interactions
