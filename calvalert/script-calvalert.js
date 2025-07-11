@@ -610,7 +610,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const button = form.querySelector('.submit-btn');
             const originalContent = button.innerHTML;
             button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> <span>Sending...</span>';
-            button.disabled = true;
+            button.classList.add('is-busy');
         });
         
         // Add input animations
