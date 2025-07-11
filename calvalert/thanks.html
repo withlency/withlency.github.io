@@ -3,48 +3,337 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Lency CalvAlert - AI-powered calving detection system">
+    <meta name="description" content="Thank you for contacting CalvAlert - AI-Powered Calving Detection">
     <link rel="icon" href="assets/logos/lency favicon.svg" type="image/svg+xml">
-    <title>Thanks for contacting CalvAlert</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Thank You - CalvAlert by Lency</title>
+    <link rel="stylesheet" href="styles-calvalert.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Thank You Page Specific Styles */
+        .thanks-hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #f9f7fb 0%, #ffffff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .thanks-bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            background-image: 
+                radial-gradient(circle at 20% 30%, var(--primary-color) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--primary-light) 0%, transparent 40%);
+        }
+        
+        /* Professional geometric shapes background */
+        .geometric-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .geometric-shape {
+            position: absolute;
+            opacity: 0.05;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            background: var(--primary-color);
+            top: -100px;
+            right: -100px;
+            transform: rotate(45deg);
+            animation: float 20s ease-in-out infinite;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            background: var(--primary-light);
+            bottom: -50px;
+            left: -50px;
+            border-radius: 50%;
+            animation: float 15s ease-in-out infinite reverse;
+        }
+        
+        .shape-3 {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            top: 50%;
+            right: 10%;
+            transform: rotate(30deg);
+            animation: float 25s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                transform: translateY(-30px) rotate(50deg);
+            }
+        }
+        
+        .thanks-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            padding: 2rem;
+            animation: thanksFadeIn 0.8s ease-out;
+        }
+        
+        @keyframes thanksFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            animation: successPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes successPulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(133, 17, 180, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 20px rgba(133, 17, 180, 0);
+            }
+        }
+        
+        .success-icon i {
+            font-size: 3rem;
+            color: white;
+            animation: checkmarkDraw 0.6s ease-out 0.3s both;
+        }
+        
+        @keyframes checkmarkDraw {
+            from {
+                transform: scale(0) rotate(-45deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+        
+        .thanks-title {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.5s forwards;
+        }
+        
+        .thanks-subtitle {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0;
+            animation: slideUp 0.8s ease-out 0.7s forwards;
+        }
+        
+        @keyframes slideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Redirect Timer */
+        .redirect-timer {
+            margin-top: 2rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1s forwards;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        
+        .timer-text {
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timer-bar {
+            width: 300px;
+            height: 4px;
+            background: rgba(133, 17, 180, 0.1);
+            border-radius: 2px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .timer-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+            width: 100%;
+            border-radius: 2px;
+            animation: timerCountdown 5s linear forwards;
+            box-shadow: 0 0 10px rgba(133, 17, 180, 0.5);
+        }
+        
+        @keyframes timerCountdown {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+        
+        .manual-link {
+            margin-top: 1.5rem;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out 1.2s forwards;
+        }
+        
+        .manual-link a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .manual-link a:hover {
+            gap: 0.75rem;
+            text-decoration: underline;
+        }
+        
+        @media (max-width: 768px) {
+            .thanks-title {
+                font-size: 2rem;
+            }
+            
+            .thanks-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .success-icon {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .success-icon i {
+                font-size: 2.5rem;
+            }
+            
+            .timer-bar {
+                width: 250px;
+            }
+            
+            .timer-text {
+                font-size: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">
-                <a href="/calvalert/" aria-label="Back to home">
-                    <img src="assets/logos/lency-logo.png" alt="Lency Logo">
-                </a>
+    <!-- Simple Navigation -->
+    <nav class="calvalert-nav">
+        <div class="nav-container">
+            <a href="/" class="back-to-lency">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Lency</span>
+            </a>
+            <div class="nav-logo">
+                <img src="assets/logos/CalvAlert-by-Lency.png" alt="CalvAlert Logo">
             </div>
-        </nav>
-    </header>
+            <a href="/calvalert" class="nav-cta">
+                <span class="nav-cta-text">Back to CalvAlert</span>
+                <i class="fas fa-home nav-cta-icon"></i>
+            </a>
+        </div>
+    </nav>
 
-    <main>
-        <section class="section-container">
-            <div class="container">
-                <div class="success-message" style="padding: 3rem; text-align: center;">
-                    <div class="success-icon">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <h2>Thank You!</h2>
-                    <p>We've received your request and will be in touch soon with updates about CalvAlert.</p>
-                    <a href="/calvalert/" class="btn primary-btn" style="margin-top: 2rem;">
-                        <span>Back to Homepage</span>
-                    </a>
+    <!-- Thank You Hero Section -->
+    <section class="thanks-hero">
+        <div class="thanks-bg-pattern"></div>
+        
+        <!-- Professional geometric background -->
+        <div class="geometric-bg">
+            <div class="geometric-shape shape-1"></div>
+            <div class="geometric-shape shape-2"></div>
+            <div class="geometric-shape shape-3"></div>
+        </div>
+        
+        <div class="thanks-container">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            
+            <h1 class="thanks-title">Thank You!</h1>
+            
+            <p class="thanks-subtitle">
+                We've received your message and we're excited to connect with you. 
+                Our team will review your inquiry and get back to you within 24-48 hours.
+            </p>
+            
+            <!-- Redirect Timer -->
+            <div class="redirect-timer">
+                <p class="timer-text">Redirecting you back to CalvAlert...</p>
+                <div class="timer-bar">
+                    <div class="timer-progress"></div>
                 </div>
             </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <div class="footer-bottom">
-                <p>&copy; 2025 Lency. All rights reserved.</p>
+            
+            <!-- Manual Link -->
+            <div class="manual-link">
+                <a href="/calvalert">
+                    Click here if you're not redirected automatically
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
-    </footer>
-    <script src="script.js"></script>
+    </section>
+
+    <script>
+        // Automatic redirect after 5 seconds
+        setTimeout(() => {
+            window.location.href = '/calvalert';
+        }, 5000);
+    </script>
 </body>
 </html>
