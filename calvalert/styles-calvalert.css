@@ -1568,6 +1568,7 @@ section {
     .problem-statement {
         flex-direction: column;
         gap: 1rem;
+        text-align: center;
     }
     
     .statement-line {
