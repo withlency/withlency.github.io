@@ -1228,8 +1228,17 @@ section {
 }
 
 .reveal-btn:hover {
+    color: white;
+    background: #5e0c7f;
     transform: translateY(-2px);
     box-shadow: 0 10px 30px rgba(133, 17, 180, 0.3);
+}
+
+.reveal-btn.active {
+    color: 5e0c7f; /* text stays white while open */
+}
+.reveal-btn.active .btn-bg {
+    transform: translateY(0); /* lock the purple gradient in place */
 }
 
 .reveal-btn:hover .btn-bg {
@@ -1379,7 +1388,6 @@ section {
 }
 
 /* Impact Visualization */
-/* Impact Visualization - Cleaner Layout */
 .impact-visualization {
     max-width: 1000px;
     margin: 0 auto;
@@ -1570,6 +1578,7 @@ section {
     .reveal-btn {
         padding: 1rem 2rem;
         font-size: 0.95rem;
+        margin: 2rem auto;
     }
     
     .timeline-line {
