@@ -1,12 +1,22 @@
 // CalvAlert Landing Page JavaScript
 document.addEventListener('DOMContentLoaded', () => {
-    // Remove page transition after load
-    setTimeout(() => {
+    const skipTransition = new URLSearchParams(window.location.search).get('skip');
+
+    if (skipTransition) {
+        document.body.classList.add('skip-transition');
         const transition = document.querySelector('.page-transition');
         if (transition) {
             transition.style.display = 'none';
         }
-    }, 3000);
+        window.history.replaceState({}, document.title, '/calvalert/');
+    } else {
+        setTimeout(() => {
+            const transition = document.querySelector('.page-transition');
+            if (transition) {
+                transition.style.display = 'none';
+            }
+        }, 2500);
+    }
     
     // Scroll Progress Bar
     const scrollProgress = () => {

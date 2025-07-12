@@ -8,30 +8,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     }, 2500);
 
-    // Add transition when clicking CalvAlert link
-    const calvAlertLink = document.querySelector('a[href="/calvalert/"]');
-    if (calvAlertLink) {
-        calvAlertLink.addEventListener('click', (e) => {
-            e.preventDefault();
+    // // Add transition when clicking CalvAlert link
+    // const calvAlertLink = document.querySelector('a[href="/calvalert/"]');
+    // if (calvAlertLink) {
+    //     calvAlertLink.addEventListener('click', (e) => {
+    //         e.preventDefault();
             
-            // Create transition for exiting
-            const exitTransition = document.createElement('div');
-            exitTransition.className = 'page-transition';
-            exitTransition.style.animation = 'fadeIn 0.6s ease forwards';
-            exitTransition.innerHTML = `
-                <div class="transition-logo">
-                    <img src="calvalert/assets/logos/CalvAlert-by-Lency.png" alt="CalvAlert Logo">
-                </div>
-            `;
+    //         // Create transition for exiting
+    //         const exitTransition = document.createElement('div');
+    //         exitTransition.className = 'page-transition';
+    //         exitTransition.style.animation = 'fadeIn 0.6s ease forwards';
+    //         exitTransition.innerHTML = `
+    //             <div class="transition-logo">
+    //                 <img src="calvalert/assets/logos/CalvAlert-by-Lency.png" alt="CalvAlert Logo">
+    //             </div>
+    //         `;
             
-            document.body.appendChild(exitTransition);
+    //         document.body.appendChild(exitTransition);
             
-            // Navigate after transition
-            setTimeout(() => {
-                window.location.href = '/calvalert/';
-            }, 600);
-        });
-    }
+    //         // Navigate after transition
+    //         setTimeout(() => {
+    //             window.location.href = '/calvalert/';
+    //         }, 600);
+    //     });
+    // }
 
     // Add fadeIn animation
     const style = document.createElement('style');
